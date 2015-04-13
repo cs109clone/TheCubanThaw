@@ -1,33 +1,25 @@
-﻿<div class="row">
-    <div class="col-md-12" id="mapVis">
-       
-
+﻿<div class="map">
+    <div id="mapVis">
+    </div>
+    <div id="histVis" style="width:400px; height:400px; background-color:aliceblue; float:left; margin-left:40px; margin-top: 20px;">
     </div>
 </div>
 
 <script>
     $(function () {
-        var geoData = [];
+        var stateData = [];
         var tweets = [];
-        var dateFormatter = d3.time.format("%Y-%m-%d");
 
         var initVis = function () {
             var MyEventHandler = new Object();
-
-            var map_vis = new MapVis(d3.select("#mapVis"), geoData, tweets, MyEventHandler);
-
+            var map_vis = new MapVis(d3.select("#mapVis"), stateData, tweets, MyEventHandler);
             $(MyEventHandler).bind("selectionChanged", function (event, start, end) {
-
-                // age_vis.onSelectionChange(dateFormatter(start), dateFormatter(end));
-
+                //map_vis.onSelectionChange(dateFormatter(start), dateFormatter(end));
             })
         }
 
-        var dataLoaded = function (error, _geoData, _tweets) {
+        var dataLoaded = function (error, _stateData, _tweets) {
 
-     
-
-        
            // var geo = '{ "type": "FeatureCollection", "features": [';
 
            // _tweets.forEach(function (d) {
@@ -53,7 +45,7 @@
            // console.log(geo);
 
             if (!error) {
-                geoData = _geoData;
+                stateData = _stateData;
                 tweets = _tweets;
                 initVis();
             }
@@ -62,8 +54,7 @@
         var startHere = function () {
             queue()
                 .defer(d3.json, 'data/states.topo.json') // geojson points
-               // .defer(d3.csv, 'data/tweets.process.csv')
-            
+                //.defer(d3.json, 'data/counties.topo.json')
                 .defer(d3.json, 'data/tweets.topo.json')
                 .await(dataLoaded);
         }

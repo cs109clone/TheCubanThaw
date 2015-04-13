@@ -4,21 +4,41 @@ MapVis = function (_parentElement, _data, _tweets, _eventHandler) {
     this.data = _data;
     this.tweets = _tweets;
 
-    //console.log(this.tweets);
     this.eventHandler = _eventHandler;
     this.displayData = [];
-
     
 
+    
+    this.dateFormat = d3.time.format("%B %d %H:%M %p");
     this.margin = { top: 20, right: 20, bottom: 30, left: 0 },
-    this.width = 1000 - this.margin.left - this.margin.right + 200;
-    this.height = 900 - this.margin.top - this.margin.bottom;
+    this.width = 550 - this.margin.left - this.margin.right + 200;
+    this.height = 500 - this.margin.top - this.margin.bottom;
 
     this.initVis();
 }
 
 
 MapVis.prototype.initVis = function () {
+
+
+    //console.log(this.tweets.objects.tweets.geometries[0].properties.time);
+
+    this.minTime = d3.min(this.tweets.objects.tweets.geometries, function (d) {
+        return d.properties.time;
+    });
+
+    this.maxTime = d3.max(this.tweets.objects.tweets.geometries, function (d) {
+        return d.properties.time;
+    });
+
+    this.sortedTweets = this.tweets.objects.tweets.geometries.sort(function (a, b) {
+        return d3.ascending(a.properties.time, b.properties.time);
+    });
+
+    var that = this;
+    this.anime;
+    this.tweeting;
+    this.states;
 
     this.democratColor = d3.scale.linear()
         .domain([50, 100])
@@ -29,19 +49,70 @@ MapVis.prototype.initVis = function () {
         .range(["#ff7f7f", "#660000"]);
         //.interpolate(d3.interpolateLab);
 
-    var that = this;
+    this.block = this.parentElement.append('div')
+                 .attr('class', 'range-style')
+
+    this.play = this.block.append('span')
+                .attr('class', 'play-button')
+                .text('Play')
+                .on('click', function () {
+                    that.animate();
+                });
+
+    this.range = this.block.append('input')
+                .attr('type', 'range')
+                .attr('min', this.minTime)
+                .attr('max', this.maxTime)
+                .attr('step', 3600)
+                .attr('class', 'time-slider')
+                .attr('value', this.minTime)
+                .attr('id', 'slider-val')
+                .on('input', function () {
+                    that.popTweets();
+                });
+
+    this.time = this.block.append('span')
+                    .attr('class', 'time')
+                    .text(this.dateFormat(new Date(this.minTime * 1000)))
 
     this.svg = this.parentElement.append("svg")
+         .attr('class', 'map-vis')
         .attr("width", this.width + this.margin.left + this.margin.right)
         .attr("height", this.height + this.margin.top + this.margin.bottom)
         .append("g")
         .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
+       
+
+    
 
     this.projection = d3.geo.albersUsa()
-    .scale(1500)
+    .scale(1000)
     .translate([this.width / 2, this.height / 2]);
 
     this.path = d3.geo.path().projection(this.projection);
+    
+
+    this.options = this.parentElement.append('div')
+                 .attr('class', 'choice')
+ 
+    this.presidential = this.options
+                .append('button')
+                .on('click', function () {
+                    that.presidentialData();
+                })
+                .attr('class', 'button-choice')
+                .text('Presidential')
+
+
+    this.sentimental = this.options
+                .append('button')
+                .on('click', function () {
+                    that.sentimentalData();
+                })
+                .attr('class', 'button-choice')
+                .text('Sentimental')
+
+                
 
 
 
@@ -60,12 +131,10 @@ MapVis.prototype.wrangleData = function () {
 
     this.displayData = this.data;
     
-  
-    this.displayData.states = topojson.feature(this.data, this.data.objects.states).features;
+    this.displayData.states = topojson.feature(this.displayData, this.displayData.objects.states).features;
     this.tweets.location = topojson.feature(this.tweets, this.tweets.objects.tweets).features;
 
-    console.log(this.displayData.states);
-    console.log(this.tweets.location);
+ 
 
     //this.displayData.counties = topojson.feature(this.data, this.data.objects.counties).features;
 
@@ -76,19 +145,7 @@ MapVis.prototype.updateVis = function () {
 
     var that = this;
 
-
-    /*var quakeColor = d3.scale.linear()
-        .domain([5, 60])
-        .range(["#275b82", "#f9fbfd"])
-        .interpolate(d3.interpolateLab);*/
-
-   // var counties = this.svg.selectAll('path')
-   //             .data(this.displayData.states)
-   //             .enter().append("path")
-   //             .attr("d", this.path)
-
-
-    var states = this.svg.selectAll('path')
+    this.states = this.svg.selectAll('path')
                 .data(this.displayData.states)
                 .enter().append("path")
                 .attr("d", this.path)
@@ -100,148 +157,106 @@ MapVis.prototype.updateVis = function () {
                 })
                 .attr('class', 'states');
 
-    var min = 1418828898;
    
-    this.tweeting(min)
-    
-
-   /* var bird = this.svg.selectAll("path")
-                   .data(this.tweets.location)
-                   .enter();
-
-    var fly = bird.append('path')
-               .attr("transform", function (d) { return "translate(" + that.path.centroid(d) + ")"; })
-               .attr('fill', '#3BA9EE')
-               .attr('d', "M 630, 425 " + 
-                          " A 195, 195 0 0 1 331, 600 " + 
-                          "A 142, 142 0 0 0 428, 570 " + 
-                          "A  70,  70 0 0 1 370, 523 " + 
-                          "A  70,  70 0 0 0 401, 521 " +
-                          "A  70,  70 0 0 1 344, 455 " +
-                          "A  70,  70 0 0 0 372, 460 " +
-                          "A  70,  70 0 0 1 354, 370 " +
-                          "A 195, 195 0 0 0 495, 442 " +
-                          "A  67,  67 0 0 1 611, 380 " +
-                          "A 117, 117 0 0 0 654, 363 " +
-                          "A  65,  65 0 0 1 623, 401 " +
-                          "A 117, 117 0 0 0 662, 390 " +
-                          "A  65,  65 0 0 1 630, 425 Z");*/
-
-
-    /*var rings = explosion.append('circle')
-                .attr("transform", function (d) { return "translate(" + that.path.centroid(d) + ")"; })
-                .attr("class", "ring")
-                .attr("r", 2)
-                .style("stroke-width", .5)
-                .attr('fill', 'none')
-                .style("stroke", function (d, i) { return quakeColor(10); })
-                .transition()
-                .ease("linear")
-                .duration(2500)
-                .style("stroke-opacity", 0.00001)
-                .style("stroke-width", 2)
-                .attr("r", Math.pow(2, 5))
-                .remove();
-
-
-    /*var coordinates = this.svg.selectAll("circle")
-                        .data(this.displayData.coordinates)
-                        .enter().append("circle")
-                        .attr("transform", function (d) { return "translate(" + that.path.centroid(d) + ")"; })
-                        .attr('fill', function () { return quakeColor(30); })
-                        .attr("stroke-width", 3)
-                        .attr('r', 4)
-                        .style('fill', '#275b82')
-                        .transition()
-				        .duration(2500)
-				        .attr("r", Math.pow(1.7, 2))
-				        .style("opacity", .1)
-				        .remove();*/
-    /*
-    var rings = this.svg.selectAll("circle")
-                .data(this.displayData.coordinates)
-                .enter().append("circle")
-                 .attr("transform", function (d) { return "translate(" + that.path.centroid(d) + ")"; })
-                .attr("class", "ring")
-                .attr("r", 2)
-                .style("stroke-width", .5)
-                .style("stroke", function () { return quakeColor(30);})
-        .transition()
-          .ease("linear")
-          .duration(1500)
-          .style("stroke-opacity", 0.00001)
-          .style("stroke-width", 1)
-          .attr("r", Math.pow(2, 4))
-          .remove();
-    // .each(this.explode);*/
-
-    /*circle = quake.append("circle")
-				.attr("class", "quake-circle")
-				.attr("r", 4)
-				.style("fill", function (d) {
-				    return quakeColor(sortedData[position].geometry.coordinates[2])
-				})
-				.transition()
-				 .duration(2500)
-				  .attr("r", Math.pow(1.7, sortedData[position].properties.mag))
-				  .style("opacity", .1)
-				  .remove();
-
-    rings = quake.append("circle")
-        .attr("class", "ring")
-        .attr("r", 2)
-        .style("stroke-width", .5)
-        .style("stroke", function (d) {
-            return quakeColor(sortedData[position].geometry.coordinates[2])
-        })
-        .transition()
-          .ease("linear")
-          .duration(1500)
-          .style("stroke-opacity", 0.00001)
-          .style("stroke-width", 1)
-          .attr("r", Math.pow(2, sortedData[position].properties.mag))
-          .remove();*/
-}
-
-
-MapVis.prototype.tweeting = function (time) {
-
-    var that = this;
- 
-
-    var tweets = this.svg.selectAll("circle")
-                  .data(this.tweets.location)
+    this.tweeting = this.svg.selectAll("circle")
+                  .data(that.tweets.location)
                   .enter();
-
-    var fly;
-    setInterval(function () {
-        fly = tweets.append('circle')
-                 .attr("transform", function (d) {
-                     if (d.properties.time == time) {
-                       
-                         return "translate(" + that.path.centroid(d) + ")";
-                     }})
-                 .attr('fill', 'green')
-                 .attr("stroke-width", 3)
-                 .attr('r', 40)
-                 .transition()
-                 .duration(2000)
-                 .attr("r", Math.pow(1.5, 5))
-                 .attr("stroke-width", 50)
-                 .style("opacity", .01)
-                 .remove();
-        time += 1;
-    }, 10);
 }
 
 
-MapVis.prototype.onSelectionChange = function (selectionStart, selectionEnd) {
+MapVis.prototype.animate = function () {
+     
+    var that = this;
 
+    if (this.play[0][0].innerText === 'Play') {
+
+        this.play.attr('class', 'stop-button').text('Stop');
+        this.anime = setInterval(function () {
+            var current = parseInt(document.getElementById('slider-val').value);
+            
+            that.popTweets(current);
+            document.getElementById('slider-val').value = parseInt(document.getElementById('slider-val').value) + 3600;
+
+
+            if (current + 3600 >= that.maxTime) {
+                clearInterval(that.anime)
+                that.play.attr('class', 'play-button').text('Play');
+                document.getElementById('slider-val').value = that.minTime;
+            }
+           
+        }, 1000)
+    }
+    else {
+        this.play.attr('class', 'play-button').text('Play');
+        clearInterval(this.anime)
+    }
 }
 
-MapVis.prototype.onHover = function () {
+MapVis.prototype.popTweets = function (time) {
 
+    if (time == undefined)
+        time = document.getElementById('slider-val').value;
+    var that = this;
+
+    var fly = this.tweeting.append('circle')
+             .attr("transform", function (d) {
+                
+                 if (d.properties.time >= time && d.properties.time < time + 3600) {
+                     return "translate(" + that.path.centroid(d) + ")";
+                 }
+             })
+
+             .attr('fill', 'green')
+             .attr("stroke-width", 3)
+             .attr('r', 8)
+             .transition()
+             .duration(3000)
+             .attr("r", Math.pow(1.5, 5))
+             .attr("stroke-width", 50)
+             .style("opacity", .01)
+             .ease('linear')
+             .remove();
+
+    this.time.text(this.dateFormat(new Date(time * 1000)));
 }
 
+
+MapVis.prototype.sentimentalData = function () {
+    var that = this;
+
+    console.log('bla');
+
+    this.states.remove();
+    this.states = this.svg.selectAll('path')
+                .data(this.displayData.states)
+                .enter().append("path")
+                .attr("d", this.path)
+                .attr('fill', function (d) {
+                    if (d.properties.obama_rate > d.properties.romney_rate)
+                        return that.democratColor(d.properties.romney_rate);
+                    else
+                        return that.republicanColor(d.properties.obama_rate);
+                })
+                .attr('class', 'states');
+}
+
+MapVis.prototype.presidentialData = function () {
+    var that = this;
+
+    console.log('bla');
+
+    this.states.remove();
+    this.states = this.svg.selectAll('path')
+                .data(this.displayData.states)
+                .enter().append("path")
+                .attr("d", this.path)
+                .attr('fill', function (d) {
+                    if (d.properties.obama_rate > d.properties.romney_rate)
+                        return that.democratColor(d.properties.obama_rate);
+                    else
+                        return that.republicanColor(d.properties.romney_rate);
+                })
+                .attr('class', 'states');
+}
 
 
