@@ -112,6 +112,8 @@ MapVis.prototype.initVis = function () {
                 .attr('class', 'button-choice')
                 .text('Sentimental')
 
+        
+
                 
 
 
@@ -155,7 +157,10 @@ MapVis.prototype.updateVis = function () {
                     else
                         return that.republicanColor(d.properties.romney_rate);
                 })
-                .attr('class', 'states');
+                .attr('class', 'states')
+                .on("click", function (d) {
+                    $(that.eventHandler).trigger("selectionChanged", d.properties.code);
+                });;
 
    
     this.tweeting = this.svg.selectAll("circle")
