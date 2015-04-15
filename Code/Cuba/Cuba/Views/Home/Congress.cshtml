@@ -1,0 +1,71 @@
+﻿<div class="congress">
+    <div id="congressVis">
+    </div>
+</div>
+
+<script>
+    $(function () {
+        var congressData = [];
+        //var tweets = [];
+
+        var initVis = function () {
+            var MyEventHandler = new Object();
+            var congress_vis = new CongressVis(d3.select("#congressVis"), congressData, MyEventHandler);
+            $(MyEventHandler).bind("selectionChanged", function (event, start, end) {
+                //map_vis.onSelectionChange(dateFormatter(start), dateFormatter(end));
+            })
+        }
+
+        var dataLoaded = function (error, _congressData) {
+
+           // var geo = '{ "type": "FeatureCollection", "features": [';
+
+           // _tweets.forEach(function (d) {
+           //     geo += '{"type": "Feature", "properties": {"city": "' + d.City + '", "state": "' + d.State + '", "time": ' + d.epoch_time
+           //         + '}, "geometry":{ "type": "' + d.type + '", "coordinates": [[';
+
+           //     var spl = d.coordinates.split(";");
+           //     var commaPlacer = 0;
+           //     spl.forEach(function (c) {
+                  
+           //         if (commaPlacer++ > 0)
+           //             geo += ', [' + c + ']';
+           //         else
+           //             geo += '[' + c + ']';
+           //     })
+
+           //     geo += ']]}},';
+             
+           // });
+           // geo += ']}';
+           ////  "geometry": { "type": "Polygon", "coordinates": [ [ [ -85.184131, 32.870525 ], [ -85.123421, 32.772248 ], [ -85.132040, 32.764211 ], [ -85.136776, 32.746512 ], [ -85.285043, 32.730731 ], [ -85.593151, 32.728530 ], [ -85.593177, 33.107340 ], [ -85.232378, 33.108077 ], [ -85.223261, 33.062580 ], [ -85.221868, 33.055538 ], [ -85.184131, 32.870525 ] ] ] } }
+       
+           // console.log(geo);
+
+            if (!error) {
+                congressData = _congressData;
+                //tweets = _tweets;
+                initVis();
+            }
+        }
+
+        var startHere = function () {
+            queue()
+                .defer(d3.json, 'https://www.govtrack.us/api/v2/role?current=true') // geojson points
+                //.defer(d3.json, 'data/counties.topo.json')
+                //.defer(d3.json, 'data/tweets.topo.json')
+                .await(dataLoaded);
+        }
+        startHere();
+    })
+
+    /*var getInnerWidth = function (element) {
+        var style = window.getComputedStyle(element.node(), null);
+
+        return parseInt(style.getPropertyValue('width'));
+    }*/
+</script>
+
+
+
+

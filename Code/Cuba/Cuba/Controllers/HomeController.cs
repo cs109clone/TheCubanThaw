@@ -14,5 +14,10 @@ namespace Cuba.Controllers
         {
             return View();
         }
+
+        public ActionResult Congress()
+        {
+            return View();
+        }
 	}
 }

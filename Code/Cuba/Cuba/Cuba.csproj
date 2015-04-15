@@ -95,6 +95,7 @@
     <Content Include="data\tweets.topo.json" />
     <Content Include="data\tweets.process.csv" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
+    <Content Include="js\Congress_Vis.js" />
     <Content Include="js\Map_Vis.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -123,6 +124,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Congress.cshtml" />
+    <Content Include="Views\Home\View1.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

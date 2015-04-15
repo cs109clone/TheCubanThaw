@@ -243,8 +243,6 @@ MapVis.prototype.sentimentalData = function () {
 MapVis.prototype.presidentialData = function () {
     var that = this;
 
-    console.log('bla');
-
     this.states.remove();
     this.states = this.svg.selectAll('path')
                 .data(this.displayData.states)
