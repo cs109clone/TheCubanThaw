@@ -95,6 +95,8 @@
     <Content Include="data\tweets.topo.json" />
     <Content Include="data\tweets.process.csv" />
     <Content Include="data\legislators-current.csv" />
+    <Content Include="data\Usa_Compilation.csv" />
+    <Content Include="data\tweets_1.topo.json" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="js\Congress_Vis.js" />
     <Content Include="js\Map_Vis.js" />

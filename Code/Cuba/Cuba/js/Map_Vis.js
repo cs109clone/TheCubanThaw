@@ -213,10 +213,10 @@ MapVis.prototype.popTweets = function (time) {
 
              .attr('fill', 'green')
              .attr("stroke-width", 3)
-             .attr('r', 8)
+             .attr('r', 3)
              .transition()
              .duration(3000)
-             .attr("r", Math.pow(1.5, 5))
+             .attr("r", Math.pow(1.4, 6))
              .attr("stroke-width", 50)
              .style("opacity", .01)
              .ease('linear')

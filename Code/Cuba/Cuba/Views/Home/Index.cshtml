@@ -1,59 +1,40 @@
 ﻿<div class="map">
     <div id="mapVis">
     </div>
-    <div style="width: 300px; height: 400px; background-color: aliceblue; float: left; margin-left: 40px; margin-top: 20px;">
+    <div style="width: 200px; height: 400px; background-color: aliceblue; float: left; margin-left: 40px; margin-top: 20px;">
         <div class="example">
             <div class="panel-group" id="senate">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#senate" href="#collapseOne">Senators
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#senate" href="#collapseSen">Senators
                             </a>
                         </h4>
                     </div>
-                    <div id="collapseOne" class="panel-collapse collapse in">
+                    <div id="collapseSen" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <div class="example">
-                                <div id="carousel-example-generic" class="carousel slide">
-                                    <!-- Indicators -->
-                                    @*<ol class="carousel-indicators">
-                                        <li data-target="#carousel-example-generic" data-slide-to="0" class=""></li>
-                                        <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
-                                        <li data-target="#carousel-example-generic" data-slide-to="2" class="active"></li>
-                                    </ol>*@
-
-                                    <!-- Wrapper for slides -->
-                                  @*  <div class="carousel-inner" id="senate-info">
-                                        <div class="item">
-                                            <img src="http://lorempixel.com/940/400/nature/" alt="Alt tag info" data-in-view="true">
-                                            <div class="carousel-caption">
-                                                <h3>First Slide Label</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, eaque, officiis, enim officia error perspiciatis quae culpa mollitia cum consectetur impedit deleniti iste dicta dolorum accusantium pariatur doloremque odit architecto.</p>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <img src="http://lorempixel.com/940/400/transport/" alt="Alt tag info">
-                                            <div class="carousel-caption">
-                                                <h3>Second Slide Label</h3>
-                                                <p>Ea, maiores, provident tempora fugit sapiente placeat asperiores doloribus quasi sunt sit accusamus quia aliquam unde. Dicta, autem, natus, asperiores officia architecto facere animi temporibus veritatis repellat esse nam quia.</p>
-                                            </div>
-                                        </div>
-                                        <div class="item active">
-                                            <img src="http://lorempixel.com/940/400/city/" alt="Alt tag info">
-                                            <div class="carousel-caption">
-                                                <h3>Third Slide Label</h3>
-                                                <p>Debitis, reiciendis, ipsum tempora eaque velit unde enim asperiores cupiditate libero cumque aut alias aperiam consequuntur consectetur dignissimos repudiandae facere. Veritatis, repellat explicabo vitae voluptates nesciunt assumenda dolore saepe ipsam.</p>
-                                            </div>
-                                        </div>
-                                    </div>*@
-
-                                    <!-- Controls -->
-                                   @* <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                                        <span class="icon-prev"></span>
-                                    </a>
-                                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                                        <span class="icon-next"></span>
-                                    </a>*@
+                                <div id="carousel-sen" class="carousel slide">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="example">
+                <div class="panel-group" id="rep">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#rep" href="#collapseRep">Representatives
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseRep" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <div class="example">
+                                    <div id="carousel-rep" class="carousel slide">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -61,92 +42,75 @@
                 </div>
             </div>
         </div>
-        @*<div class="example">
-            <div class="panel-group" id="representative">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#representative" href="#collapseOne">Collapsible Group Item #1
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseTwo" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>*@
     </div>
-</div>
 
-<script>
-    $(function () {
-        var stateData = [];
-        var tweets = [];
-        var congress = [];
+    <script>
+        $(function () {
+            var stateData = [];
+            var tweets = [];
+            var congress = [];
 
-        var initVis = function () {
-            var MyEventHandler = new Object();
-            var map_vis = new MapVis(d3.select("#mapVis"), stateData, tweets, MyEventHandler);
-            var congress_vis = new CongressVis(d3.select("#carousel-example-generic"), congress, MyEventHandler);
-            $(MyEventHandler).bind("selectionChanged", function (event, data) {
-
-
-                congress_vis.onSelectionChange(data);
-
-            })
-        }
-
-        var dataLoaded = function (error, _stateData, _tweets, _congress) {
+            var initVis = function () {
+                var MyEventHandler = new Object();
+                var map_vis = new MapVis(d3.select("#mapVis"), stateData, tweets, MyEventHandler);
+                var congress_vis = new CongressVis(d3.select("#carousel-sen"), d3.select("#carousel-rep"), congress, MyEventHandler);
+                $(MyEventHandler).bind("selectionChanged", function (event, data) {
 
 
-            // var geo = '{ "type": "FeatureCollection", "features": [';
+                    congress_vis.onSelectionChange(data);
 
-            // _tweets.forEach(function (d) {
-            //     geo += '{"type": "Feature", "properties": {"city": "' + d.City + '", "state": "' + d.State + '", "time": ' + d.epoch_time
-            //         + '}, "geometry":{ "type": "' + d.type + '", "coordinates": [[';
-
-            //     var spl = d.coordinates.split(";");
-            //     var commaPlacer = 0;
-            //     spl.forEach(function (c) {
-
-            //         if (commaPlacer++ > 0)
-            //             geo += ', [' + c + ']';
-            //         else
-            //             geo += '[' + c + ']';
-            //     })
-
-            //     geo += ']]}},';
-
-            // });
-            // geo += ']}';
-            ////  "geometry": { "type": "Polygon", "coordinates": [ [ [ -85.184131, 32.870525 ], [ -85.123421, 32.772248 ], [ -85.132040, 32.764211 ], [ -85.136776, 32.746512 ], [ -85.285043, 32.730731 ], [ -85.593151, 32.728530 ], [ -85.593177, 33.107340 ], [ -85.232378, 33.108077 ], [ -85.223261, 33.062580 ], [ -85.221868, 33.055538 ], [ -85.184131, 32.870525 ] ] ] } }
-
-            // console.log(geo);
-
-            if (!error) {
-                stateData = _stateData;
-                tweets = _tweets;
-                congress = _congress;
-                initVis();
+                })
             }
-        }
 
-        var startHere = function () {
-            queue()
-                .defer(d3.json, 'data/states.topo.json') // geojson points
-                .defer(d3.json, 'data/tweets.topo.json')
-                .defer(d3.csv, 'data/legislators-current.csv')
-                .await(dataLoaded);
-        }
-        startHere();
-    })
+            var dataLoaded = function (error, _stateData, _tweets, _congress) {
 
-    /*var getInnerWidth = function (element) {
-        var style = window.getComputedStyle(element.node(), null);
 
-        return parseInt(style.getPropertyValue('width'));
-    }*/
-</script>
+                /* var geo = '{ "type": "FeatureCollection", "features": [';
+
+                 _tweets.forEach(function (d) {
+                     geo += '{"type": "Feature", "properties": {"city": "' + d.City + '", "state": "' + d.State + '", "time": ' + d.epoch_time
+                         + '}, "geometry":{ "type": "' + d.type + '", "coordinates": [[';
+
+                     var spl = d.coordinates.split(";");
+                     var commaPlacer = 0;
+                     spl.forEach(function (c) {
+
+                         if (commaPlacer++ > 0)
+                             geo += ', [' + c + ']';
+                         else
+                             geo += '[' + c + ']';
+                     })
+
+                     geo += ']]}},';
+
+                 });
+                 geo += ']}';*/
+                ////  "geometry": { "type": "Polygon", "coordinates": [ [ [ -85.184131, 32.870525 ], [ -85.123421, 32.772248 ], [ -85.132040, 32.764211 ], [ -85.136776, 32.746512 ], [ -85.285043, 32.730731 ], [ -85.593151, 32.728530 ], [ -85.593177, 33.107340 ], [ -85.232378, 33.108077 ], [ -85.223261, 33.062580 ], [ -85.221868, 33.055538 ], [ -85.184131, 32.870525 ] ] ] } }
+
+                // console.log(geo);
+
+                if (!error) {
+                    stateData = _stateData;
+                    tweets = _tweets;
+                    congress = _congress;
+                    initVis();
+                }
+            }
+
+            var startHere = function () {
+                queue()
+                    .defer(d3.json, 'data/states.topo.json') // geojson points
+                    //.defer(d3.csv, 'data/Usa_Compilation.csv')
+                    .defer(d3.json, 'data/tweets_1.topo.json')
+                    .defer(d3.csv, 'data/legislators-current.csv')
+                    .await(dataLoaded);
+            }
+            startHere();
+        })
+
+        /*var getInnerWidth = function (element) {
+            var style = window.getComputedStyle(element.node(), null);
+    
+            return parseInt(style.getPropertyValue('width'));
+        }*/
+    </script>
