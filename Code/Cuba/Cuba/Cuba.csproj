@@ -97,6 +97,7 @@
     <Content Include="data\legislators-current.csv" />
     <Content Include="data\Usa_Compilation.csv" />
     <Content Include="data\tweets_1.topo.json" />
+    <Content Include="data\presidents.json" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="js\Congress_Vis.js" />
     <Content Include="js\Map_Vis.js" />
@@ -129,6 +130,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Congress.cshtml" />
     <Content Include="Views\Home\View1.cshtml" />
+    <Content Include="Views\Home\Presidents.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

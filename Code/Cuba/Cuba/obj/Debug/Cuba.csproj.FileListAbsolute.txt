@@ -15,4 +15,3 @@ C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cub
 C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Web.Mvc.xml
 C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\obj\Debug\Cuba.dll
 C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\obj\Debug\Cuba.pdb
-C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\obj\Debug\Cuba.csprojResolveAssemblyReference.cache
