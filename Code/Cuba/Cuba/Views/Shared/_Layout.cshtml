@@ -17,6 +17,9 @@
     <script src = "/js/Map_Vis.js"></script>
     <script src = "/js/Congress_Vis.js"></script>
     <script src = "/js/President_Vis.js"></script>
+    <script src = "/js/Twitter_Vis.js"></script>
+    <script src = "/js/Area_Vis.js"></script>
+
 
     <style>
 
@@ -38,11 +41,10 @@
         }
 
         .play-button{
-            width: 50px;
+            width: 8%;
             height: 28px;
             background-color: green;
             float:left;
-            margin-left: 50px;
             border-radius: 5px;
             cursor:pointer;
             text-align:center;
@@ -51,11 +53,10 @@
         }
 
         .stop-button{
-            width: 50px;
+           width: 8%;
             height: 28px;
             background-color: red;
             float:left;
-            margin-left: 50px;
             border-radius: 5px;
             cursor:pointer;
             text-align:center;
@@ -64,7 +65,7 @@
         }
 
         .time-slider{
-            width: 500px;
+            width: 90%;
             float:left;
             margin-left: 5px;
         }
@@ -75,10 +76,9 @@
         }
 
         .map-vis{
-            margin-top:50px;
-            margin-bottom: 50px;
-            margin-left: -400px;
-            float:left;
+            margin-left:auto; 
+            margin-right: auto;
+            display:block;
         }
 
         .choice{
@@ -86,8 +86,22 @@
             float: left;
         }
 
+        .axis text {
+    font: 10px sans-serif;
+}
+
+.axis line,
+.axis path {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+
         
     </style>
+
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
     
 </head>
 <body>

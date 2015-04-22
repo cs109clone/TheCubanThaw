@@ -1,7 +1,7 @@
 ﻿<div class="map">
     <div id="mapVis">
     </div>
-    <div style="width: 200px; height: 400px; background-color: aliceblue; float: left; margin-left: 40px; margin-top: 20px;">
+    <div class="politician" style="visibility:hidden">
         <div class="example">
             <div class="panel-group" id="senate">
                 <div class="panel panel-default">
@@ -43,74 +43,76 @@
             </div>
         </div>
     </div>
+</div>
 
-    <script>
-        $(function () {
-            var stateData = [];
-            var tweets = [];
-            var congress = [];
+<script>
+    $(function () {
+        var stateData = [];
+        var tweets = [];
+        var congress = [];
 
-            var initVis = function () {
-                var MyEventHandler = new Object();
-                var map_vis = new MapVis(d3.select("#mapVis"), stateData, tweets, MyEventHandler);
-                var congress_vis = new CongressVis(d3.select("#carousel-sen"), d3.select("#carousel-rep"), congress, MyEventHandler);
-                $(MyEventHandler).bind("selectionChanged", function (event, data) {
+        var initVis = function () {
+            var MyEventHandler = new Object();
+            var map_vis = new MapVis(d3.select("#mapVis"), stateData, tweets, MyEventHandler);
+            var tweet_vis = new TwitterVis(d3.select("#mapVis"), tweets, MyEventHandler);
+           // var congress_vis = new CongressVis(d3.select("#carousel-sen"), d3.select("#carousel-rep"), congress, MyEventHandler);
+            $(MyEventHandler).bind("selectionChanged", function (event, data) {
 
 
-                    congress_vis.onSelectionChange(data);
+               // congress_vis.onSelectionChange(data);
 
-                })
+            })
+        }
+
+        var dataLoaded = function (error, _stateData, _tweets, _congress) {
+
+
+            /* var geo = '{ "type": "FeatureCollection", "features": [';
+
+             _tweets.forEach(function (d) {
+                 geo += '{"type": "Feature", "properties": {"city": "' + d.City + '", "state": "' + d.State + '", "time": ' + d.epoch_time
+                     + '}, "geometry":{ "type": "' + d.type + '", "coordinates": [[';
+
+                 var spl = d.coordinates.split(";");
+                 var commaPlacer = 0;
+                 spl.forEach(function (c) {
+
+                     if (commaPlacer++ > 0)
+                         geo += ', [' + c + ']';
+                     else
+                         geo += '[' + c + ']';
+                 })
+
+                 geo += ']]}},';
+
+             });
+             geo += ']}';*/
+            ////  "geometry": { "type": "Polygon", "coordinates": [ [ [ -85.184131, 32.870525 ], [ -85.123421, 32.772248 ], [ -85.132040, 32.764211 ], [ -85.136776, 32.746512 ], [ -85.285043, 32.730731 ], [ -85.593151, 32.728530 ], [ -85.593177, 33.107340 ], [ -85.232378, 33.108077 ], [ -85.223261, 33.062580 ], [ -85.221868, 33.055538 ], [ -85.184131, 32.870525 ] ] ] } }
+
+            // console.log(geo);
+
+            if (!error) {
+                stateData = _stateData;
+                tweets = _tweets;
+                congress = _congress;
+                initVis();
             }
+        }
 
-            var dataLoaded = function (error, _stateData, _tweets, _congress) {
+        var startHere = function () {
+            queue()
+                .defer(d3.json, 'data/states.topo.json') // geojson points
+                //.defer(d3.csv, 'data/Usa_Compilation.csv')
+                .defer(d3.json, 'data/tweets_1.topo.json')
+                .defer(d3.csv, 'data/legislators-current.csv')
+                .await(dataLoaded);
+        }
+        startHere();
+    })
 
+    var getInnerWidth = function (element) {
+        var style = window.getComputedStyle(element.node(), null);
 
-                /* var geo = '{ "type": "FeatureCollection", "features": [';
-
-                 _tweets.forEach(function (d) {
-                     geo += '{"type": "Feature", "properties": {"city": "' + d.City + '", "state": "' + d.State + '", "time": ' + d.epoch_time
-                         + '}, "geometry":{ "type": "' + d.type + '", "coordinates": [[';
-
-                     var spl = d.coordinates.split(";");
-                     var commaPlacer = 0;
-                     spl.forEach(function (c) {
-
-                         if (commaPlacer++ > 0)
-                             geo += ', [' + c + ']';
-                         else
-                             geo += '[' + c + ']';
-                     })
-
-                     geo += ']]}},';
-
-                 });
-                 geo += ']}';*/
-                ////  "geometry": { "type": "Polygon", "coordinates": [ [ [ -85.184131, 32.870525 ], [ -85.123421, 32.772248 ], [ -85.132040, 32.764211 ], [ -85.136776, 32.746512 ], [ -85.285043, 32.730731 ], [ -85.593151, 32.728530 ], [ -85.593177, 33.107340 ], [ -85.232378, 33.108077 ], [ -85.223261, 33.062580 ], [ -85.221868, 33.055538 ], [ -85.184131, 32.870525 ] ] ] } }
-
-                // console.log(geo);
-
-                if (!error) {
-                    stateData = _stateData;
-                    tweets = _tweets;
-                    congress = _congress;
-                    initVis();
-                }
-            }
-
-            var startHere = function () {
-                queue()
-                    .defer(d3.json, 'data/states.topo.json') // geojson points
-                    //.defer(d3.csv, 'data/Usa_Compilation.csv')
-                    .defer(d3.json, 'data/tweets_1.topo.json')
-                    .defer(d3.csv, 'data/legislators-current.csv')
-                    .await(dataLoaded);
-            }
-            startHere();
-        })
-
-        /*var getInnerWidth = function (element) {
-            var style = window.getComputedStyle(element.node(), null);
-    
-            return parseInt(style.getPropertyValue('width'));
-        }*/
-    </script>
+        return parseInt(style.getPropertyValue('width'));
+    }
+</script>

@@ -85,6 +85,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="css\style.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -99,9 +100,12 @@
     <Content Include="data\tweets_1.topo.json" />
     <Content Include="data\presidents.json" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
+    <Content Include="js\Area_Vis.js" />
+    <Content Include="js\EventHandlers.js" />
     <Content Include="js\Congress_Vis.js" />
     <Content Include="js\Map_Vis.js" />
     <Content Include="js\President_Vis.js" />
+    <Content Include="js\Twitter_Vis.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -132,6 +136,7 @@
     <Content Include="Views\Home\Congress.cshtml" />
     <Content Include="Views\Home\View1.cshtml" />
     <Content Include="Views\Home\Presidents.cshtml" />
+    <Content Include="Views\Home\Design.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -6,8 +6,8 @@ PresidentVis = function (_presElement, _data, _eventHandler) {
     this.eventHandler = _eventHandler;
     this.displayData = [];
 
-    this.x = 100;
-    this.y = 100;
+    this.x = 300;
+    this.y = 300;
 
 
     this.margin = { top: 20, right: 20, bottom: 30, left: 10 },
@@ -61,10 +61,6 @@ PresidentVis.prototype.initVis = function () {
 }
 
 
-
-
-
-
 PresidentVis.prototype.wrangleData = function (data) {
     this.displayData = this.data;
 }
@@ -109,7 +105,7 @@ PresidentVis.prototype.updateVis = function () {
                 .attr('cx', function (d, i) {
 
                     console.log(i % 4)
-                    return that.x * (i % 5) + 150;
+                    return that.x * (i % 4);
 
                 })
                 .attr('cy', function (d, i) {
@@ -136,13 +132,13 @@ PresidentVis.prototype.updateVis = function () {
                  .attr('x', function (d, i) {
 
                     // console.log(i % 5)
-                     return that.x * (i % 5) + 150 -30;
+                     return that.x * (i % 4);
 
                  })
                 .attr('y', function (d, i) {
                    // console.log(i % 4)
 
-                    return that.y * (i % 4) + 50;
+                    return that.y * (i % 4);
                 });;
 
 }
