@@ -79,7 +79,7 @@ AreaVis.prototype.initVis = function () {
                .append('g')
                .attr('transform', 'translate(' + this.margin.left + ',' + this.margin.top + ')');
 
-    console.log(this.height);
+
     this.x = d3.scale.linear()
       .range([0, this.width]);
 
@@ -100,7 +100,7 @@ AreaVis.prototype.initVis = function () {
       .scale(this.y)
       .orient("left");
 
-    console.log(this.data);
+
 
     this.svg.append("g")
         .attr("class", "x axis")
@@ -202,9 +202,24 @@ AreaVis.prototype.initVis = function () {
  * Method to wrangle the data. In this case it takes an options object
  * @param _filterFunction - a function that filters data or "null" if none
  */
-AreaVis.prototype.wrangleData = function (selectionStart, selectionEnd) {
 
-    this.displayData = this.data;
+AreaVis.prototype.onChange = function (value) {
+
+    this.wrangleData(value);
+    this.updateVis();
+}
+
+AreaVis.prototype.wrangleData = function (value) {
+    this.displayData = this.filterData(value);
+}
+
+AreaVis.prototype.filterData = function (value) {
+    var res = [];
+
+    for (var i = 0; i < value; i++) {
+        res.push(this.data[i]);
+    }
+    return res;
 }
 
 

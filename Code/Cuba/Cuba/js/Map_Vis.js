@@ -6,10 +6,10 @@ MapVis = function (_parentElement, _data, _tweets, _eventHandler) {
 
     this.eventHandler = _eventHandler;
     this.displayData = [];
-    
 
-    console.log(getInnerWidth(this.parentElement));
-    
+
+
+
     this.dateFormat = d3.time.format("%B %d %H:%M %p");
     this.margin = { top: 0, right: 100, bottom: 10, left: 0 },
     this.width = getInnerWidth(this.parentElement),
@@ -34,7 +34,7 @@ MapVis.prototype.initVis = function () {
         return d.properties.time;
     });
 
- 
+
 
 
     var that = this;
@@ -55,7 +55,7 @@ MapVis.prototype.initVis = function () {
 
     this.playStopButton = d3.select('#play')
                   .on("click", function () {
-                        $(that.eventHandler).trigger("runSlide", this);
+                      $(that.eventHandler).trigger("runSlide", this);
                   });
 
     this.range = d3.select('#slider')
@@ -64,35 +64,35 @@ MapVis.prototype.initVis = function () {
                    .attr('step', 1)
                    .attr('value', -1)
 
-   
 
-   /* 
 
-    this.time = this.block.append('span')
-                    .attr('class', 'time')
-                    .text(this.dateFormat(new Date(this.minTime * 1000)))*/
+    /* 
+ 
+     this.time = this.block.append('span')
+                     .attr('class', 'time')
+                     .text(this.dateFormat(new Date(this.minTime * 1000)))*/
 
     this.svg = this.parentElement.append("svg")
          .attr('class', 'map-vis')
-        .attr("width", this.width )
+        .attr("width", this.width)
         .attr("height", this.height)
-        
+
         .append("g")
         .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
-       
 
-    
+
+
 
     this.projection = d3.geo.albersUsa()
     //.scale(1080)
     .translate([this.width / 2, this.height / 2]);
 
     this.path = d3.geo.path().projection(this.projection);
-    
+
 
     //this.options = this.parentElement.append('div')
     //             .attr('class', 'choice')
- 
+
     //this.presidential = this.options
     //            .append('button')
     //            .on('click', function () {
@@ -110,9 +110,9 @@ MapVis.prototype.initVis = function () {
     //            .attr('class', 'button-choice')
     //            .text('Sentimental')
 
-        
 
-                
+
+
     this.timeBucket = [];
     this.aggregate();
 
@@ -130,11 +130,11 @@ MapVis.prototype.initVis = function () {
 MapVis.prototype.wrangleData = function () {
 
     this.displayData = this.data;
-    
+
     this.displayData.states = topojson.feature(this.displayData, this.displayData.objects.states).features;
     //this.tweets.location = topojson.feature(this.tweets, this.tweets.objects.tweets).features;
 
- 
+
 
     //this.displayData.counties = topojson.feature(this.data, this.data.objects.counties).features;
 
@@ -160,7 +160,7 @@ MapVis.prototype.updateVis = function () {
                     $(that.eventHandler).trigger("selectionChanged", d.properties.code);
                 });;
 
-   
+
     //this.tweeting = this.svg.selectAll("circle")
     //              .data(that.tweets.location)
     //              .enter();
@@ -168,7 +168,7 @@ MapVis.prototype.updateVis = function () {
 
 
 MapVis.prototype.animate = function (type) {
-     
+
     var that = this;
     var current;
     var element = document.getElementById('slider');
@@ -190,6 +190,28 @@ MapVis.prototype.animate = function (type) {
     }
 }
 
+MapVis.prototype.animate2 = function (element) {
+
+
+    var that = this;
+    var current;
+
+
+
+//    this.playStopButton.attr('class', 'stop-button').text('Stop');
+
+    current = element + 1;
+    that.poping(element + 1);
+
+
+
+
+
+ //   this.playStopButton.attr('class', 'play-button').text('Play');
+
+
+}
+
 MapVis.prototype.popTweets = function (time) {
 
     if (time == undefined)
@@ -198,7 +220,7 @@ MapVis.prototype.popTweets = function (time) {
 
     var fly = this.tweeting.append('circle')
              .attr("transform", function (d) {
-                
+
                  if (d.properties.time >= time && d.properties.time < time + 3600) {
                      return "translate(" + that.path.centroid(d) + ")";
                  }
@@ -222,7 +244,6 @@ MapVis.prototype.popTweets = function (time) {
 MapVis.prototype.sentimentalData = function () {
     var that = this;
 
-    console.log('bla');
 
     this.states.remove();
     this.states = this.svg.selectAll('path')
@@ -258,7 +279,7 @@ MapVis.prototype.presidentialData = function () {
 MapVis.prototype.aggregate = function () {
 
     var that = this;
-    
+
 
     this.tweets.location = topojson.feature(this.tweets, this.tweets.objects.tweets).features;
 
@@ -274,9 +295,9 @@ MapVis.prototype.aggregate = function () {
         this.timeBucket.push(res);
     }
 
-   // this.tweeting = this.svg.selectAll("circle")
-   //                .data(this.timeBucket)
-   //                .enter();
+    // this.tweeting = this.svg.selectAll("circle")
+    //                .data(this.timeBucket)
+    //                .enter();
 }
 
 
@@ -286,9 +307,9 @@ MapVis.prototype.poping = function (time) {
 
     if (time == undefined)
         time = document.getElementById('slider-val').value;
-    
 
-   // console.log(this.timeBucket[0]);
+
+    // console.log(this.timeBucket[0]);
 
     var fly = this.svg.selectAll("circle")
                   .data(this.timeBucket[time])
@@ -296,7 +317,7 @@ MapVis.prototype.poping = function (time) {
                   .append('circle')
                   .attr("transform", function (d) {
 
-                        return "translate(" + that.path.centroid(d) + ")";
+                      return "translate(" + that.path.centroid(d) + ")";
 
                   })
                     .attr('fill', 'black')
@@ -311,7 +332,7 @@ MapVis.prototype.poping = function (time) {
                     .remove();;
 
 
-   // this.time.text(this.dateFormat(new Date(time * 1000)));
+    // this.time.text(this.dateFormat(new Date(time * 1000)));
 }
 
 

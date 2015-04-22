@@ -104,12 +104,12 @@ PresidentVis.prototype.updateVis = function () {
                 })
                 .attr('cx', function (d, i) {
 
-                    console.log(i % 4)
+             
                     return that.x * (i % 4);
 
                 })
                 .attr('cy', function (d, i) {
-                    console.log(i % 4)
+                  
 
                     return that.y * (i % 4);
                 })

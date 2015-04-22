@@ -159,8 +159,8 @@ TwitterVis.prototype.wrangleData = function () {
     this.tweets.location = topojson.feature(this.tweets, this.tweets.objects.tweets).features;
 
 
-    console.log(this.tweets);
-    console.log(this.tweets.location);
+
+
 
 
     //console.log(this.tweets.lo);

@@ -92,7 +92,33 @@
 
             $(MyEventHandler).bind("runSlide", function (event, data) {
 
-                map_vis.animate(data.innerHTML);
+                var element = document.getElementById('slider');
+                var value = parseInt(element.value);
+                var max = parseInt(element.max);
+                var len = max - value;
+
+                for (var i = 0; i < len; i++)
+                {
+
+                    setTimeout(function (x) {
+                        return function () {
+                            map_vis.animate2(parseInt(element.value))
+                            area_vis.onChange(parseInt(element.value) + 1)
+                            element.value = parseInt(element.value) + 1;
+                        };
+                    }(i), 2000 * i);
+                    
+                }
+
+               // map_vis.animate2(parseInt(element.value))
+               // element.value = parseInt(element.value) + 1;
+
+                
+
+
+                
+                
+                
                 // congress_vis.onSelectionChange(data);
 
             });
