@@ -84,6 +84,24 @@ RepVis.prototype.initVis = function () {
         .style("text-anchor", "end")
         .text("Total");
 
+    this.tip = d3.tip()
+          .attr('class', 'd3-tip')
+            .offset([-10, 0])
+            .html(function (d, i) {
+
+                var result = "<strong>Names:</strong><br/>";
+                d.forEach(function (j) {
+                    result += "<span style='color:red; font-size:small'>";
+                    result += j.last_name + ",  ";
+                    result += j.first_name + "</span><br/>"
+                });
+                console.log(result);
+                
+            return result;
+            })
+
+    this.svgState.call(this.tip);
+
 
     // filter, aggregate, modify data
     this.wrangleData();
@@ -196,7 +214,7 @@ RepVis.prototype.repByState = function (value) {
 
     var repBars = this.svgState.append("g")
                    .selectAll("g.rep")
-                   .data(repData)
+                   .data([this.displayData.for, this.displayData.against] )
 
 
     repBars.enter()
@@ -207,14 +225,16 @@ RepVis.prototype.repByState = function (value) {
                     .append("rect")
                     .attr("height", function (d) {
 
-                        return that.height - that.yState(d);
+                        return that.height - that.yState(d.length);
                     })
                     .attr("y", function (d) {
-                        return that.yState(d)
+                        return that.yState(d.length)
                     })
                     .attr("width", 35)
                     .attr("x", function (d, i) {
                         return ((i + 1) * 40);
                     })
-                    .attr("fill", "black");
+                    .attr("fill", "black")
+                    .on('mouseover', this.tip.show)
+                    .on('mouseout', this.tip.hide);
 }

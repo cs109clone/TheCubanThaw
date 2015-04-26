@@ -33,7 +33,7 @@
         </div>
         <div id="areaVis" style="float: left; width: 100%; height: 40%;">
         </div>
-        <span>Representatives</span>
+        <span id="repre" style="display:none">Representatives</span>
         <div id="repVis" style="float: left; width: 100%; height: 55%; display:none;">
         </div>
     </div>
@@ -120,6 +120,7 @@
                     document.getElementById("areaVis").style.display = "none";
                     document.getElementById("politician").style.display = "block";
                     document.getElementById("repVis").style.display = "block";
+                    document.getElementById("repre").style.display = "block";
                     // document.getElementById("histVis").style.display = "none";
 
                 }
@@ -128,6 +129,7 @@
                     document.getElementById("politician").style.display = "none";
                     document.getElementById("areaVis").style.display = "block";
                     document.getElementById("repVis").style.display = "none";
+                    document.getElementById("repre").style.display = "none";
                     //document.getElementById("histVis").style.display = "block";
                     map_vis.presidentialData();
                 }
