@@ -102,6 +102,10 @@ PresidentVis.prototype.updateVis = function () {
                     //    return '#008000';
 
                 })
+                .attr('cx', 0)
+                .transition()
+                .duration(3000)
+               
                 .attr('cx', function (d, i) {
 
              
@@ -128,7 +132,10 @@ PresidentVis.prototype.updateVis = function () {
                    else
                        return '#008000';
                })
+        
                 .text(function (d) { return d.name.official_full })
+                
+                
                  .attr('x', function (d, i) {
 
                     // console.log(i % 5)
