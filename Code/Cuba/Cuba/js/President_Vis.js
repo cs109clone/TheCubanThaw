@@ -6,13 +6,12 @@ PresidentVis = function (_presElement, _data, _eventHandler) {
     this.eventHandler = _eventHandler;
     this.displayData = [];
 
-    this.x = 300;
-    this.y = 300;
+    this.x = 150;
+    this.y = 150;
 
-
-    this.margin = { top: 20, right: 20, bottom: 30, left: 10 },
-    this.width = 700 - this.margin.left - this.margin.right;
-    this.height = 600 - this.margin.top - this.margin.bottom;
+    this.margin = { top: 90, right: 0, bottom: 40, left: 250 },
+    this.width = getInnerWidth(this.presElement) - this.margin.right - this.margin.left;
+    this.height = 650 - this.margin.top - this.margin.bottom;
 
     this.initVis();
 }
@@ -25,16 +24,15 @@ PresidentVis.prototype.initVis = function () {
     this.name;
 
     this.svg = this.presElement.append("svg")
-                   .attr('class', 'pres-vis')
-                   .attr("width", this.width + this.margin.left + this.margin.right)
+                   .style('display', 'block')
+                   .attr("width", this.width / 1.4)
                    .attr("height", this.height + this.margin.top + this.margin.bottom)
                    .append("g")
-                   .attr("transform", "translate(" + this.margin.left + 5 + "," + this.margin.top + 1 + ")");
+                   .attr("transform", "translate(" + this.margin.left  + "," + this.margin.top + ")");
 
     this.options = this.presElement.append('div')
                  .attr('class', 'cuba')
                 
-
     this.for = this.options
                 .append('button')
                 .on('click', function () {
@@ -92,20 +90,22 @@ PresidentVis.prototype.updateVis = function () {
 
     this.pres = holder
                 .append('circle')
-                .attr('r', 40)
+                .attr('r', 60)
                 .attr('fill', function (d) {
-                    if (d.bio.party === 'Democrat')
-                        return '#0d1b28';
-                    else if (d.bio.party === 'Republican')
-                        return '#660000';
-                    else
-                        return '#008000';
+                    d3.select(this)
+                  .style("fill", "url(#image)");
+                    //if (d.bio.party === 'Democrat')
+                    //    return '#0d1b28';
+                    //else if (d.bio.party === 'Republican')
+                    //    return '#660000';
+                    //else
+                    //    return '#008000';
 
                 })
                 .attr('cx', function (d, i) {
 
              
-                    return that.x * (i % 4);
+                    return that.x * (i % 5);
 
                 })
                 .attr('cy', function (d, i) {
@@ -132,13 +132,13 @@ PresidentVis.prototype.updateVis = function () {
                  .attr('x', function (d, i) {
 
                     // console.log(i % 5)
-                     return that.x * (i % 4);
+                     return that.x * (i % 5) - 45;
 
                  })
                 .attr('y', function (d, i) {
                    // console.log(i % 4)
 
-                    return that.y * (i % 4);
+                    return that.y * (i % 4)  + 80;
                 });;
 
 }

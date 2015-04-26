@@ -1,7 +1,17 @@
 ﻿
-<div id="preVis">
+<div id="preVis" style="width:100%; height:100%;">
+    
 
 </div>
+
+<svg id="mySvg" width="100" height="100">
+      <defs id="mdef">
+        <pattern id="image" x="0" y="0" height="10" width="10">
+          <image x="-15" y="0" width="150" height="150" xlink:href="http://www.e-pint.com/epint.jpg"></image>
+        </pattern>
+  </defs>
+</svg>
+   
 
 
 
@@ -13,7 +23,6 @@
             var initVis = function () {
                 var MyEventHandler = new Object();
                 var pre_vis = new PresidentVis(d3.select("#preVis"), presidentData, MyEventHandler);
-                //var congress_vis = new CongressVis(d3.select("#carousel-sen"), d3.select("#carousel-rep"), congress, MyEventHandler);
                 $(MyEventHandler).bind("selectionChanged", function (event, data) {
 
 
@@ -66,9 +75,9 @@
             startHere();
         })
 
-        /*var getInnerWidth = function (element) {
+        var getInnerWidth = function (element) {
             var style = window.getComputedStyle(element.node(), null);
     
             return parseInt(style.getPropertyValue('width'));
-        }*/
+        }
     </script>

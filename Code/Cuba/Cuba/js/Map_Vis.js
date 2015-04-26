@@ -117,29 +117,6 @@ MapVis.prototype.initVis = function () {
     this.svg.call(this.tip);
 
 
-    //this.options = this.parentElement.append('div')
-    //             .attr('class', 'choice')
-
-    //this.presidential = this.options
-    //            .append('button')
-    //            .on('click', function () {
-    //                that.presidentialData();
-    //            })
-    //            .attr('class', 'button-choice')
-    //            .text('Presidential')
-
-
-    //this.sentimental = this.options
-    //            .append('button')
-    //            .on('click', function () {
-    //                that.sentimentalData();
-    //            })
-    //            .attr('class', 'button-choice')
-    //            .text('Sentimental')
-
-
-
-
     this.timeBucket = [];
     this.aggregate();
 
@@ -159,12 +136,6 @@ MapVis.prototype.wrangleData = function () {
     this.displayData = this.data;
 
     this.displayData.states = topojson.feature(this.displayData, this.displayData.objects.states).features;
-    //this.tweets.location = topojson.feature(this.tweets, this.tweets.objects.tweets).features;
-
-
-
-    //this.displayData.counties = topojson.feature(this.data, this.data.objects.counties).features;
-
 }
 
 
@@ -176,10 +147,7 @@ MapVis.prototype.updateVis = function () {
                 .data(this.displayData.states)
                 .enter().append("path")
                 .attr("d", this.path)
-                .attr('class', 'states')
-               /* .on("click", function (d) {
-                    $(that.eventHandler).trigger("selectionChanged", d.properties.code);
-                });*/
+                .attr('class', 'states');
                 
     this.presidentialData();
 }
@@ -210,24 +178,11 @@ MapVis.prototype.animate = function (type) {
 
 MapVis.prototype.animate2 = function (element) {
 
-
     var that = this;
     var current;
 
-
-
-//    this.playStopButton.attr('class', 'stop-button').text('Stop');
-
     current = element + 1;
     that.poping(element + 1);
-
-
-
-
-
- //   this.playStopButton.attr('class', 'play-button').text('Play');
-
-
 }
 
 MapVis.prototype.popTweets = function (time) {
@@ -305,10 +260,6 @@ MapVis.prototype.aggregate = function () {
         });
         this.timeBucket.push(res);
     }
-
-    // this.tweeting = this.svg.selectAll("circle")
-    //                .data(this.timeBucket)
-    //                .enter();
 }
 
 
@@ -319,28 +270,29 @@ MapVis.prototype.poping = function (time) {
     if (time == undefined)
         time = document.getElementById('slider-val').value;
 
-
-    // console.log(this.timeBucket[0]);
-
     var fly = this.svg.selectAll("circle")
                   .data(this.timeBucket[time])
-                  .enter()
-                  .append('circle')
-                  .attr("transform", function (d) {
+
+        fly
+          .enter()
+          .append('circle')
+          .attr("transform", function (d) {
 
                       return "translate(" + that.path.centroid(d) + ")";
 
                   })
                     .attr('fill', 'black')
                     .attr("stroke-width", 3)
-                    .attr('r', 2)
+                    .attr('r', 1)
                     .transition()
-                    .duration(3000)
-                    .attr("r", Math.pow(1.5, 6))
+                    .duration(1800)
+                    .attr("r", Math.pow(1.6, 5))
                     .attr("stroke-width", 50)
                     .style("opacity", .01)
                     .ease('linear')
                     .remove();
+     
+        fly.exit().remove();
 
 
     // this.time.text(this.dateFormat(new Date(time * 1000)));
