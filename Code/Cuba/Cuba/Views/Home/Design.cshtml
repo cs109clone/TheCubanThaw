@@ -204,7 +204,7 @@
 
         var startHere = function () {
             queue()
-                .defer(d3.json, '/data/states2.topo.json') // geojson points
+                .defer(d3.json, '/data/states.topo.json') // geojson points
                 //.defer(d3.csv, 'data/Usa_Compilation.csv')
                 .defer(d3.json, '/data/tweets_1.topo.json')
                 .defer(d3.csv, '/data/legislators-current.csv')
