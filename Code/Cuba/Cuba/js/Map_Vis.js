@@ -35,7 +35,7 @@ MapVis.prototype.initVis = function () {
     });
 
 
-
+    this.fly;
 
     var that = this;
     this.anime;
@@ -62,7 +62,17 @@ MapVis.prototype.initVis = function () {
                    .attr('max', Math.round(this.totalHours) - 1)
                    .attr('min', -1)
                    .attr('step', 1)
-                   .attr('value', -1)
+                   .attr('value', -1);
+
+    this.presView = d3.select('#pres-view')
+                      .on('click', function(){
+                          $(that.eventHandler).trigger("chooseView", this);
+                      });
+
+    this.sentView = d3.select('#sent-view')
+                      .on('click', function () {
+                          $(that.eventHandler).trigger("chooseView", this);
+                      });
 
 
 
@@ -84,7 +94,7 @@ MapVis.prototype.initVis = function () {
 
 
     this.projection = d3.geo.albersUsa()
-    //.scale(1080)
+    .scale(800)
     .translate([this.width / 2, this.height / 2]);
 
     this.path = d3.geo.path().projection(this.projection);
@@ -149,21 +159,12 @@ MapVis.prototype.updateVis = function () {
                 .data(this.displayData.states)
                 .enter().append("path")
                 .attr("d", this.path)
-                .attr('fill', function (d) {
-                    if (d.properties.obama_rate > d.properties.romney_rate)
-                        return that.democratColor(d.properties.obama_rate);
-                    else
-                        return that.republicanColor(d.properties.romney_rate);
-                })
                 .attr('class', 'states')
-                .on("click", function (d) {
+               /* .on("click", function (d) {
                     $(that.eventHandler).trigger("selectionChanged", d.properties.code);
-                });;
-
-
-    //this.tweeting = this.svg.selectAll("circle")
-    //              .data(that.tweets.location)
-    //              .enter();
+                });*/
+                
+    this.presidentialData();
 }
 
 
@@ -243,37 +244,27 @@ MapVis.prototype.popTweets = function (time) {
 
 MapVis.prototype.sentimentalData = function () {
     var that = this;
-
-
-    this.states.remove();
-    this.states = this.svg.selectAll('path')
-                .data(this.displayData.states)
-                .enter().append("path")
-                .attr("d", this.path)
-                .attr('fill', function (d) {
-                    if (d.properties.obama_rate > d.properties.romney_rate)
-                        return that.democratColor(d.properties.romney_rate);
-                    else
-                        return that.republicanColor(d.properties.obama_rate);
-                })
-                .attr('class', 'states');
+    
+    this.states 
+                .attr('fill', 'black')
+                .on("click", function (d) {
+                    $(that.eventHandler).trigger("selectionChanged", d.properties.code);
+                });
 }
 
 MapVis.prototype.presidentialData = function () {
     var that = this;
 
-    this.states.remove();
-    this.states = this.svg.selectAll('path')
-                .data(this.displayData.states)
-                .enter().append("path")
-                .attr("d", this.path)
-                .attr('fill', function (d) {
-                    if (d.properties.obama_rate > d.properties.romney_rate)
-                        return that.democratColor(d.properties.obama_rate);
-                    else
-                        return that.republicanColor(d.properties.romney_rate);
-                })
-                .attr('class', 'states');
+    this.states
+        .attr('fill', function (d) {
+            if (d.properties.obama_rate > d.properties.romney_rate)
+                return that.democratColor(d.properties.obama_rate);
+            else
+                return that.republicanColor(d.properties.romney_rate);
+        })
+        .on("click", null);
+
+                
 }
 
 MapVis.prototype.aggregate = function () {
@@ -324,12 +315,12 @@ MapVis.prototype.poping = function (time) {
                     .attr("stroke-width", 3)
                     .attr('r', 2)
                     .transition()
-                    .duration(1800)
+                    .duration(3000)
                     .attr("r", Math.pow(1.5, 6))
                     .attr("stroke-width", 50)
                     .style("opacity", .01)
                     .ease('linear')
-                    .remove();;
+                    .remove();
 
 
     // this.time.text(this.dateFormat(new Date(time * 1000)));

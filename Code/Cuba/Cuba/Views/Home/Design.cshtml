@@ -17,118 +17,121 @@
     <div id="map-buttons" style="margin-left: 5%; float: left; width: 50%; height: auto;">
         <div id="mapVis" style="float: left; width: 100%; height: 500px; text-align: center">
         </div>
-        <div id="buttons" style="float: left; width: 50%; height: 60px; background-color:yellow">
-            <span class="analysis-type" style="width: 80px; float: left; margin-top: 10px; margin-left: 20px; height: 30px; display: block; background-color:yellow">President</span>
-            <span class="analysis-type" style="width: 80px; float: left; margin-top: 10px; margin-left: 20px; height: 30px; display: block; ">Sentiment</span>
+        <div id="buttons" style="float: left; width: 50%; height: 60px;">
+            <span id="pres-view" class="analysis-type">President</span>
+            <span id="sent-view" class="analysis-type">Sentiment</span>
         </div>
-        <div id="color-representation" style="float: left; width: 50%; height: 60px; background-color:black">
+        <div id="color-representation" style="float: left; width: 50%; height: 60px;">
         </div>
     </div>
-    <div id="hist-politician" style="margin-left: 1%; float: left; width: 35%; height: 560px;">
-        <div id="politician1" style="float: left; width: 100%; height: 60%;">
-            <div class="politician">
-                <div class="example">
-                    <div class="panel-group" id="senate">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#senate" href="#collapseSen">Senators
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseSen" class="panel-collapse collapse in">
-                                <div class="panel-body">
-                                    <div class="example">
-                                        <div id="carousel-sen" class="carousel slide">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="example">
-                        <div class="panel-group" id="rep">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#rep" href="#collapseRep">Representatives
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="collapseRep" class="panel-collapse collapse in">
-                                    <div class="panel-body">
-                                        <div class="example">
-                                            <div id="carousel-rep" class="carousel slide">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div id="area-hist-politician" style="margin-left: 1%; float: left; width: 35%; height: 560px;">
+        <div id="politician" style="float: left; width: 100%; height: 60%; display: none">
+            <span id="pol-state" style="display: block; width: inherit">Senators</span>
+
+            <div id="senatorsVis" style="width: 50%; height: 100%; float: left">
             </div>
         </div>
         <div id="areaVis" style="float: left; width: 100%; height: 40%;">
-
+        </div>
+        <span>Representatives</span>
+        <div id="repVis" style="float: left; width: 100%; height: 55%; display:none;">
         </div>
     </div>
 </div>
 
 <script>
+    var nyTimesAPI = function (n) {
+        var call = "http://api.nytimes.com/svc/search/v2/articlesearch.json?q=cuba&begin_date=20141217&page="
+          + n + "&api-key=sample-key";
+        return call;
+    };
+
+
     $(function () {
         var stateData = [];
         var tweets = [];
         var congress = [];
         var areaData = [];
+        var histData = [];
 
         var initVis = function () {
             var MyEventHandler = new Object();
             var map_vis = new MapVis(d3.select("#mapVis"), stateData, tweets, MyEventHandler);
             var area_vis = new AreaVis(d3.select("#areaVis"), areaData, MyEventHandler);
-            //var Event_handlers = new EventHandler(MyEventHandler);
-            // var tweet_vis = new TwitterVis(d3.select("#mapVis"), tweets, MyEventHandler);
-            // var congress_vis = new CongressVis(d3.select("#carousel-sen"), d3.select("#carousel-rep"), congress, MyEventHandler);
-
+            var sen_vis = new SenVis(d3.select("#senatorsVis"), congress, MyEventHandler);
+            var rep_vis = new RepVis(d3.select("#repVis"), congress, MyEventHandler)
+            var play;
             $(MyEventHandler).bind("runSlide", function (event, data) {
+
+
+                if (data.innerText === 'Play') {
+                    data.innerText = 'Stop';
+                    data.className = 'stop-button';
+                }
+
+                else {
+                    clearInterval(play);
+                    data.innerText = 'Play';
+                    data.className = 'play-button';
+                    return;
+                }
 
                 var element = document.getElementById('slider');
                 var value = parseInt(element.value);
                 var max = parseInt(element.max);
                 var len = max - value;
 
-                for (var i = 0; i < len; i++)
-                {
+                //for (var i = 0; i < len; i++)
+                //{
 
-                    setTimeout(function (x) {
-                        return function () {
-                            map_vis.animate2(parseInt(element.value))
-                            area_vis.onChange(parseInt(element.value) + 1)
-                            element.value = parseInt(element.value) + 1;
-                        };
-                    }(i), 2000 * i);
-                    
-                }
+                //    setTimeout(function (x) {
+                //        return function () {
+                //            map_vis.animate2(parseInt(element.value))
+                //            area_vis.onChange(parseInt(element.value) + 1)
+                //            element.value = parseInt(element.value) + 1;
+                //        };
+                //    }(i), 1500 * i);
 
-               // map_vis.animate2(parseInt(element.value))
-               // element.value = parseInt(element.value) + 1;
+                //}
 
-                
+                play = setInterval(function () {
+                    map_vis.animate2(parseInt(element.value))
+                    area_vis.onChange(parseInt(element.value) + 1)
+                    element.value = parseInt(element.value) + 1;
 
-
-                
-                
-                
-                // congress_vis.onSelectionChange(data);
+                }, 1000);
 
             });
 
             $(MyEventHandler).bind("selectionChanged", function (event, data) {
 
+                sen_vis.onChange(data);
+                rep_vis.onChange(data);
 
-                // congress_vis.onSelectionChange(data);
+            });
 
-            })
+            $(MyEventHandler).bind("chooseView", function (event, data) {
+
+                if (data.innerText !== 'President') {
+                    clearInterval(play);
+
+                    document.getElementById("time").style.visibility = "hidden";
+                    map_vis.sentimentalData();
+                    document.getElementById("areaVis").style.display = "none";
+                    document.getElementById("politician").style.display = "block";
+                    document.getElementById("repVis").style.display = "block";
+                    // document.getElementById("histVis").style.display = "none";
+
+                }
+                else {
+                    document.getElementById("time").style.visibility = "visible";
+                    document.getElementById("politician").style.display = "none";
+                    document.getElementById("areaVis").style.display = "block";
+                    document.getElementById("repVis").style.display = "none";
+                    //document.getElementById("histVis").style.display = "block";
+                    map_vis.presidentialData();
+                }
+            });
         }
 
         var dataLoaded = function (error, _stateData, _tweets, _congress) {
@@ -186,6 +189,10 @@
                 temp.forEach(function (d) {
                     areaData.push(d.length);
                 });
+
+                temp = [];
+
+
                 stateData = _stateData;
                 tweets = _tweets;
                 congress = _congress;
@@ -195,7 +202,7 @@
 
         var startHere = function () {
             queue()
-                .defer(d3.json, '/data/states.topo.json') // geojson points
+                .defer(d3.json, '/data/states2.topo.json') // geojson points
                 //.defer(d3.csv, 'data/Usa_Compilation.csv')
                 .defer(d3.json, '/data/tweets_1.topo.json')
                 .defer(d3.csv, '/data/legislators-current.csv')
@@ -209,4 +216,6 @@
 
         return parseInt(style.getPropertyValue('width'));
     }
+
+
 </script>

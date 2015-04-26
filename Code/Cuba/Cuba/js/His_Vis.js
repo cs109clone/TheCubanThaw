@@ -19,11 +19,11 @@
  * @param _metaData -- the meta-data / data description object
  * @constructor
  */
-AreaVis = function (_parentElement, _data, _metaData) {
+HisVis = function (_parentElement, _data, _metaData) {
     this.parentElement = _parentElement;
     this.data = _data;
     this.displayData = [];
- 
+
     this.dateFormatter = d3.time.format("%Y-%m-%d");
 
 
@@ -40,10 +40,40 @@ AreaVis = function (_parentElement, _data, _metaData) {
 /**
  * Method that sets up the SVG and the variables
  */
-AreaVis.prototype.initVis = function () {
+HisVis.prototype.initVis = function () {
 
-    var that = this; 
+    var that = this; // read about the this
+
+    /*this.fromText = this.parentElement
+                         .append("span")
+                         .text("From: ")
+                         .attr("class", "text-date")
+
+    this.startDate = this.parentElement
+                         .append('input')
+                         .attr("type", "date")
+                         .attr('id', 'start-date')
+
+    this.toText = this.parentElement
+                         .append("span")
+                         .text("To: ")
+                         .attr("class", "text-date")
+
+    this.endDate = this.parentElement
+                         .append('input')
+                         .attr("type", "date")
+                         .attr('id', 'end-date')
+
+    this.error = this.parentElement
+                         .append('span')
+                         .attr('class', 'error-mess')
+
+
+*/
+
+    //TODO: construct or select SVG
     this.svg = this.parentElement.append('svg')
+               //.attr('class', 'area-vis')
                .attr('width', this.width + this.margin.left + this.margin.right)
                .attr('height', this.height + this.margin.top + this.margin.bottom)
                .append('g')
@@ -59,7 +89,7 @@ AreaVis.prototype.initVis = function () {
     this.area = d3.svg.area()
       .interpolate("monotone")
       .x(function (d, i) { return that.x(i); })
-      .y0(this.height )
+      .y0(this.height)
       .y1(function (d) { return that.y(d); });
 
     this.xAxis = d3.svg.axis()
@@ -173,17 +203,17 @@ AreaVis.prototype.initVis = function () {
  * @param _filterFunction - a function that filters data or "null" if none
  */
 
-AreaVis.prototype.onChange = function (value) {
+HisVis.prototype.onChange = function (value) {
 
     this.wrangleData(value);
     this.updateVis();
 }
 
-AreaVis.prototype.wrangleData = function (value) {
+HisVis.prototype.wrangleData = function (value) {
     this.displayData = this.filterData(value);
 }
 
-AreaVis.prototype.filterData = function (value) {
+HisVis.prototype.filterData = function (value) {
     var res = [];
 
     for (var i = 0; i < value; i++) {
@@ -197,12 +227,12 @@ AreaVis.prototype.filterData = function (value) {
 /**
  * the drawing function - should use the D3 selection, enter, exit
  */
-AreaVis.prototype.updateVis = function () {
+HisVis.prototype.updateVis = function () {
 
     var that = this;
 
     this.x.domain(d3.extent(this.displayData, function (d, i) { return i; }));
-    this.y.domain([0, d3.max(this.displayData, function (d) { return d;})]);
+    this.y.domain([0, d3.max(this.displayData, function (d) { return d; })]);
 
     this.svg.select(".x.axis")
         .call(this.xAxis);
@@ -224,154 +254,154 @@ AreaVis.prototype.updateVis = function () {
 
     path.exit()
       .remove();
-   /* var domain = [];
-    var range = [];
-    var i = 0;
-
-    while (this.metaData.priorities[i] != undefined) {
-        domain.push(this.metaData.priorities[i]['item-title']);
-        range.push(i * 40);
-        i++;
-    }
-
-    var maxStatic = d3.max(this.staticData, function (d) { return d; });
-    var maxBrushed = d3.max(this.brushedData, function (d) { return d; });
-    var maxUsed = maxBrushed != undefined && maxBrushed > maxStatic ? maxBrushed : maxStatic;
-
-    this.x.domain(domain).range(range);
-
-    this.y.domain([0, maxUsed]);
-
-    this.svg.select(".x.axis")
-        .call(this.xAxis)
-        .selectAll("text")
-            .style("text-anchor", "end")
-            .attr("dx", "-.50em")
-            .attr("dy", ".15em")
-            .attr("transform", function (d) {
-                return "rotate(-65)"
-            });
-
-    this.svg.select(".y.axis")
-        .call(this.yAxis)
-
-    if (this.staticRows != undefined)
-        this.staticRows.remove();
-
-    if (this.brushedRows != undefined)
-        this.brushedRows.remove();
-
-
-
-    if (maxBrushed == undefined || maxStatic >= maxBrushed) {
-
-        this.staticRows = this.svg.append("g")
-                    .selectAll("g.row")
-                    .data(this.staticData)
-                    .enter()
-                    .append("g")
-                    .attr("class", "row")
-
-
-        var bars = this.staticRows
-                    .append("rect")
-                    .attr("height", function (d) {
-                        return that.height - that.y(d);
-                    })
-                    .attr("y", function (d) {
-                        return that.y(d)
-                    })
-                    .attr("width", 35)
-                    .attr("x", function (d, i) {
-                        return (i * 40);
-                    })
-                    .attr("fill", function (d, i) {
-                        return that.metaData.priorities[i]['item-color'];
-
-                    });
-
-        this.brushedRows = this.svg.append("g")
-                   .selectAll("g.row")
-                   .data(this.brushedData)
-                   .enter()
-                   .append("g")
-                   .attr("class", "row")
-
-
-        var bBars = this.brushedRows
-                    .append("rect")
-                    .attr("height", function (d) {
-                        return that.height - that.y(d);
-                    })
-                    .attr("y", function (d) {
-                        return that.y(d)
-                    })
-                    .attr("width", 35)
-                    .attr("x", function (d, i) {
-                        return (i * 40);
-                    })
-                    .attr("fill", '#D3D3D3');
-
-
-
-
-    }
-
-    else {
-
-        this.brushedRows = this.svg.append("g")
+    /* var domain = [];
+     var range = [];
+     var i = 0;
+ 
+     while (this.metaData.priorities[i] != undefined) {
+         domain.push(this.metaData.priorities[i]['item-title']);
+         range.push(i * 40);
+         i++;
+     }
+ 
+     var maxStatic = d3.max(this.staticData, function (d) { return d; });
+     var maxBrushed = d3.max(this.brushedData, function (d) { return d; });
+     var maxUsed = maxBrushed != undefined && maxBrushed > maxStatic ? maxBrushed : maxStatic;
+ 
+     this.x.domain(domain).range(range);
+ 
+     this.y.domain([0, maxUsed]);
+ 
+     this.svg.select(".x.axis")
+         .call(this.xAxis)
+         .selectAll("text")
+             .style("text-anchor", "end")
+             .attr("dx", "-.50em")
+             .attr("dy", ".15em")
+             .attr("transform", function (d) {
+                 return "rotate(-65)"
+             });
+ 
+     this.svg.select(".y.axis")
+         .call(this.yAxis)
+ 
+     if (this.staticRows != undefined)
+         this.staticRows.remove();
+ 
+     if (this.brushedRows != undefined)
+         this.brushedRows.remove();
+ 
+ 
+ 
+     if (maxBrushed == undefined || maxStatic >= maxBrushed) {
+ 
+         this.staticRows = this.svg.append("g")
+                     .selectAll("g.row")
+                     .data(this.staticData)
+                     .enter()
+                     .append("g")
+                     .attr("class", "row")
+ 
+ 
+         var bars = this.staticRows
+                     .append("rect")
+                     .attr("height", function (d) {
+                         return that.height - that.y(d);
+                     })
+                     .attr("y", function (d) {
+                         return that.y(d)
+                     })
+                     .attr("width", 35)
+                     .attr("x", function (d, i) {
+                         return (i * 40);
+                     })
+                     .attr("fill", function (d, i) {
+                         return that.metaData.priorities[i]['item-color'];
+ 
+                     });
+ 
+         this.brushedRows = this.svg.append("g")
                     .selectAll("g.row")
                     .data(this.brushedData)
                     .enter()
                     .append("g")
                     .attr("class", "row")
-
-
-        var bBars = this.brushedRows
-                    .append("rect")
-                    .attr("height", function (d) {
-                        return that.height - that.y(d);
-                    })
-                    .attr("y", function (d) {
-                        return that.y(d)
-                    })
-                    .attr("width", 35)
-                    .attr("x", function (d, i) {
-                        return (i * 40);
-                    })
-                    .attr("fill", '#D3D3D3');
-
-        this.staticRows = this.svg.append("g")
-                    .selectAll("g.row")
-                    .data(this.staticData)
-                    .enter()
-                    .append("g")
-                    .attr("class", "row")
-
-
-        var bars = this.staticRows
-                    .append("rect")
-                    .attr("height", function (d) {
-                        return that.height - that.y(d);
-                    })
-                    .attr("y", function (d) {
-                        return that.y(d)
-                    })
-                    .attr("width", 35)
-                    .attr("x", function (d, i) {
-                        return (i * 40);
-                    })
-                    .attr("fill", function (d, i) {
-                        return that.metaData.priorities[i]['item-color'];
-
-                    });
-
-    }*/
+ 
+ 
+         var bBars = this.brushedRows
+                     .append("rect")
+                     .attr("height", function (d) {
+                         return that.height - that.y(d);
+                     })
+                     .attr("y", function (d) {
+                         return that.y(d)
+                     })
+                     .attr("width", 35)
+                     .attr("x", function (d, i) {
+                         return (i * 40);
+                     })
+                     .attr("fill", '#D3D3D3');
+ 
+ 
+ 
+ 
+     }
+ 
+     else {
+ 
+         this.brushedRows = this.svg.append("g")
+                     .selectAll("g.row")
+                     .data(this.brushedData)
+                     .enter()
+                     .append("g")
+                     .attr("class", "row")
+ 
+ 
+         var bBars = this.brushedRows
+                     .append("rect")
+                     .attr("height", function (d) {
+                         return that.height - that.y(d);
+                     })
+                     .attr("y", function (d) {
+                         return that.y(d)
+                     })
+                     .attr("width", 35)
+                     .attr("x", function (d, i) {
+                         return (i * 40);
+                     })
+                     .attr("fill", '#D3D3D3');
+ 
+         this.staticRows = this.svg.append("g")
+                     .selectAll("g.row")
+                     .data(this.staticData)
+                     .enter()
+                     .append("g")
+                     .attr("class", "row")
+ 
+ 
+         var bars = this.staticRows
+                     .append("rect")
+                     .attr("height", function (d) {
+                         return that.height - that.y(d);
+                     })
+                     .attr("y", function (d) {
+                         return that.y(d)
+                     })
+                     .attr("width", 35)
+                     .attr("x", function (d, i) {
+                         return (i * 40);
+                     })
+                     .attr("fill", function (d, i) {
+                         return that.metaData.priorities[i]['item-color'];
+ 
+                     });
+ 
+     }*/
 }
 
 
 
-AreaVis.prototype.onSelectionChange = function (selectionStart, selectionEnd) {
+HisVis.prototype.onSelectionChange = function (selectionStart, selectionEnd) {
 
     // TODO: call wrangle function
     this.brushed = true;
@@ -379,7 +409,7 @@ AreaVis.prototype.onSelectionChange = function (selectionStart, selectionEnd) {
     this.updateVis();
 }
 
-AreaVis.prototype.onDateSelection = function () {
+HisVis.prototype.onDateSelection = function () {
 
     var start = document.getElementById('start-date').value;
     var end = document.getElementById('end-date').value;
@@ -431,7 +461,7 @@ AreaVis.prototype.onDateSelection = function () {
 
 
 
-AreaVis.prototype.aggregateCountForRange = function (startDate, endDate) {
+HisVis.prototype.aggregateCountForRange = function (startDate, endDate) {
 
     var that = this;
     var temp;
