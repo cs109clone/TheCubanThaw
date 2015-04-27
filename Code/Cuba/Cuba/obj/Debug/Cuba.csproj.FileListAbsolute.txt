@@ -15,4 +15,13 @@ C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cub
 C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Web.Mvc.xml
 C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\obj\Debug\Cuba.dll
 C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\obj\Debug\Cuba.pdb
-C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\obj\Debug\Cuba.csprojResolveAssemblyReference.cache
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Newtonsoft.Json.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Net.Http.Formatting.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Web.Http.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Web.Http.WebHost.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Newtonsoft.Json.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Net.Http.Formatting.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Web.Http.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Web.Http.WebHost.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\EntityFramework.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\EntityFramework.xml
