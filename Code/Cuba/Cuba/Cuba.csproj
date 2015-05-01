@@ -244,6 +244,7 @@
       <DependentUpon>CubaModel.edmx</DependentUpon>
       <LastGenOutput>CubaModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Data\Tweets_Analysis.csv" />
     <None Include="Properties\PublishProfiles\Cuba.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\get_platform.js" />
@@ -259,7 +260,9 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\scrolling-nav.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
