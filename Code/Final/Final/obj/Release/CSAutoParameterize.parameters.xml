@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\v11.0;Initial Catalog=aspnet-Final-20150427211725;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\aspnet-Final-20150427211725.mdf" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\IvanLima\\Google\ Drive\\Harvard\\CS171\\Final\ Project\\TheCubanThaw\\Code\\Final\\Final\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="NYTEntities-Web.config Connection String" description="NYTEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.Cuba.csdl|res://*/Models.Cuba.ssdl|res://*/Models.Cuba.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=iris.arvixe.com;initial catalog=NYT;persist security info=True;user id=motv;password=de102162;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\IvanLima\\Google\ Drive\\Harvard\\CS171\\Final\ Project\\TheCubanThaw\\Code\\Final\\Final\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='NYTEntities']/@connectionString" />
+  </parameter>
+</parameters>

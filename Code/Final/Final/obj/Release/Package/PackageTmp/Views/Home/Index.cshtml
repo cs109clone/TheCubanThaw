@@ -1,0 +1,288 @@
+﻿<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="#page-top">The Cuban Thaw</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                <li class="hidden">
+                    <a class="page-scroll" href="#page-top"></a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#map">Tweet Map</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#president">The Next President & Cuba</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#eventsVis">Since The Thaw</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<!-- Cuba Pic Section -->
+<section id="intro" class="intro-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section -->
+<section id="map" class="map-section">
+    <div class="container-fluid">
+        <div class="row">
+            <div id="content" style="width: 100%;">
+                <h1>Tweet Map</h1>
+                <div id="time" style="width: 86%; margin-left: 5%; float: left; height: 50px;">
+                    <div id="range" style="width: 50%; float: left; height: 40px;">
+
+                        <span id="play" class="play-button">Play</span>
+                        <input id="slider" type="range" class="time-slider" />
+
+                    </div>
+                    <div id="clock" style="width: 21%; float: left; height: 40px;">
+
+                        <span id="even-time" class="time">HH:00:00</span>
+                    </div>
+                    <div id="title" style="width: 29%; float: left; height: 40px; text-align: center">
+                        <span class="politician-type">President</span>
+                    </div>
+                </div>
+                <div id="map-buttons" style="margin-left: 5%; float: left; width: 50%; height: auto;">
+                    <div id="mapVis" class="col-md-9" style="float: left; width: 100%; height: 500px; text-align: center">
+                    </div>
+                    <div id="buttons" style="float: left; width: 50%; height: 60px;">
+                        <span id="pres-view" class="analysis-type">President</span>
+                        <span id="sent-view" class="analysis-type">Sentiment</span>
+                    </div>
+                    <div id="color-representation" style="float: left; width: 50%; height: 60px;">
+                    </div>
+                </div>
+                <div id="area-hist-politician" style="margin-left: 1%; float: left; width: 35%; height: 560px;">
+                    <div id="politician" style="float: left; width: 100%; height: 60%; display: none">
+                        <span id="pol-state" style="display: block; width: inherit">Senators</span>
+
+                        <div id="senatorsVis" style="width: 50%; height: 100%; float: left">
+                        </div>
+                    </div>
+                    <div id="areaVis" style="float: left; width: 100%; height: 40%;">
+                    </div>
+                    <span id="repre" style="display: none">Representatives</span>
+                    <div id="repVis" style="float: left; width: 100%; height: 55%; display: none;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- President Section -->
+<section id="president" class="president-section">
+    <div class="container">
+        <div class="row">
+            <div id="preVis" class="col-lg-12" style="width: 100%; height: 100%;">
+                <h1>The Next President & Cuba</h1>
+            </div>
+            <svg id="mySvg" width="100" height="100">
+                <defs id="mdef">
+                    <pattern id="image" x="0" y="0" height="10" width="10">
+                        <image x="-15" y="0" width="150" height="150" xlink:href="http://www.e-pint.com/epint.jpg"></image>
+                    </pattern>
+                </defs>
+            </svg>
+        </div>
+    </div>
+</section>
+
+<!-- Thaw Events -->
+<section id="since" class="since-section">
+    <div class="container">
+        <div class="row">
+
+
+           @* <div class="col-lg-9" id="sinceVis">*@
+                
+                <div id="eventsVis" class="col-lg-9" style="width: 60%; height: 100%; float: left; margin-left: 3%; border-right: 3px solid black;">
+                <h1 style="">Since The Thaw</h1>
+                </div>
+                <div id="eventArticles" style="float: left; width: 30%; height: 100%; background-color: burlywood; overflow-y: auto;">
+                    <div class="art">
+                        <span>Cuba ...</span>
+                        <span>Date</span>
+                    </div>
+
+                </div>
+          @*  </div>*@
+            @*<div class="col-lg-3" id="embedFromData">
+                <blockquote class="embedly-card">
+                    <h4>
+                        <a href="http://www.nytimes.com">Brush to See Pictures and Information 
+                       courtesy  New York Times API </a>
+                    </h4>
+                    <p>NYTimes</p>
+                </blockquote>
+            </div>*@
+        </div>
+    </div>
+</section>
+
+<script>
+    $(function () {
+
+        var stateData = [];
+        var tweets = [];
+        var congress = [];
+        var areaData = [];
+        var nyData = [];
+        //var histData = [];
+
+        var initVis = function () {
+            var MyEventHandler = new Object();
+            var map_vis = new MapVis(d3.select("#mapVis"), stateData, tweets, MyEventHandler);
+            var area_vis = new AreaVis(d3.select("#areaVis"), areaData, MyEventHandler);
+            var sen_vis = new SenVis(d3.select("#senatorsVis"), congress, MyEventHandler);
+            var rep_vis = new RepVis(d3.select("#repVis"), congress, MyEventHandler)
+            var event_vis = new EventVis(d3.select("#eventsVis"), nyData, MyEventHandler);
+            var play;
+            $(MyEventHandler).bind("runSlide", function (event, data) {
+
+
+                if (data.innerText === 'Play') {
+                    data.innerText = 'Stop';
+                    data.className = 'stop-button';
+                }
+
+                else {
+                    clearInterval(play);
+                    data.innerText = 'Play';
+                    data.className = 'play-button';
+                    return;
+                }
+
+                var element = document.getElementById('slider');
+                var value = parseInt(element.value);
+                var max = parseInt(element.max);
+                var len = max - value;
+
+                
+
+                play = setInterval(function () {
+                    map_vis.animate2(parseInt(element.value))
+                    area_vis.onChange(parseInt(element.value) + 1)
+                    element.value = parseInt(element.value) + 1;
+
+                }, 1500);
+
+            });
+
+            $(MyEventHandler).bind("selectionChanged", function (event, data) {
+
+                sen_vis.onChange(data);
+                rep_vis.onChange(data);
+
+            });
+
+            $(MyEventHandler).bind("chooseView", function (event, data) {
+
+                if (data.innerText !== 'President') {
+                    clearInterval(play);
+
+                    document.getElementById("time").style.visibility = "hidden";
+                    map_vis.sentimentalData();
+                    document.getElementById("areaVis").style.display = "none";
+                    document.getElementById("politician").style.display = "block";
+                    document.getElementById("repVis").style.display = "block";
+                    document.getElementById("repre").style.display = "block";
+                     //document.getElementById("histVis").style.display = "none";
+
+                }
+                else {
+                    document.getElementById("time").style.visibility = "visible";
+                    document.getElementById("politician").style.display = "none";
+                    document.getElementById("areaVis").style.display = "block";
+                    document.getElementById("repVis").style.display = "none";
+                    document.getElementById("repre").style.display = "none";
+                   // document.getElementById("histVis").style.display = "block";
+                    map_vis.presidentialData();
+                }
+            });
+        }
+        
+        var dataLoaded = function (error, _stateData, _tweets, _congress, _nyData) {
+
+
+            if (!error) {
+                var min = d3.min(_tweets.objects.tweets.geometries, function (d) {
+                    return d.properties.time;
+                });
+
+                var max = d3.max(_tweets.objects.tweets.geometries, function (d) {
+                    return d.properties.time;
+                });
+
+                var period = (max - min) / 3600;
+                var temp = [];
+
+                var current = min;
+                for (var i = 0; i < period - 1; i++) {
+
+                    current = current + 3600;
+
+                    var res = _tweets.objects.tweets.geometries.filter(function (d) {
+                        if (d.properties.time >= current && d.properties.time < current + 3600)
+                            return d;
+                    });
+                    temp.push(res);
+
+                }
+
+                temp.forEach(function (d) {
+                    areaData.push(d.length);
+                });
+
+                temp = [];
+
+
+                stateData = _stateData;
+                tweets = _tweets;
+                congress = _congress;
+                nyData = _nyData;
+                initVis();
+            }
+        }
+
+        var startHere = function () {
+            queue()
+                .defer(d3.json, '/data/states.topo.json')
+                .defer(d3.json, '/data/tweets_1.topo.json')
+                .defer(d3.csv, '/data/legislators-current.csv')
+                .defer(d3.json, '/api/ny/')
+                .await(dataLoaded);
+        }
+        startHere();
+    })
+
+    var getInnerWidth = function (element) {
+        var style = window.getComputedStyle(element.node(), null);
+
+        return parseInt(style.getPropertyValue('width'));
+    }
+
+</script>

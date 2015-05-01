@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Cuba.Models.Article>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.word_count)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pub_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.headline)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.thumbnail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.source)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lead_paragraph)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.web_url)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.word_count)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pub_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.headline)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.thumbnail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.source)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lead_paragraph)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.web_url)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

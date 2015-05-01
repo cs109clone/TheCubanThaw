@@ -1,0 +1,126 @@
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Cuba.dll.config
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Cuba.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Cuba.pdb
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Antlr3.Runtime.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\EntityFramework.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\EntityFramework.SqlServer.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Microsoft.Owin.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Microsoft.Owin.Security.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Newtonsoft.Json.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Owin.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\System.Net.Http.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\System.Net.Http.Formatting.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\System.Net.Http.WebRequest.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\System.Web.Helpers.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\System.Web.Http.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\System.Web.Http.WebHost.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\System.Web.Mvc.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\System.Web.Optimization.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\System.Web.Razor.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\System.Web.WebPages.Deployment.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\System.Web.WebPages.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\System.Web.WebPages.Razor.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\WebGrease.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\System.Web.Helpers.xml
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\System.Web.Mvc.xml
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\System.Web.Optimization.xml
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\System.Web.Razor.xml
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\System.Web.WebPages.xml
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\System.Web.WebPages.Deployment.xml
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\System.Web.WebPages.Razor.xml
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Antlr3.Runtime.pdb
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Newtonsoft.Json.xml
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\System.Net.Http.Formatting.xml
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\System.Web.Http.xml
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\System.Web.Http.WebHost.xml
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\EntityFramework.xml
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\EntityFramework.SqlServer.xml
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Microsoft.Owin.xml
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Microsoft.Owin.Security.xml
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\obj\Release\Cuba.dll
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\obj\Release\Cuba.pdb
+C:\Users\IvanLima\Google Drive\Harvard\Cuba\Cuba\obj\Release\Cuba.csprojResolveAssemblyReference.cache
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Cuba.dll.config
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Cuba.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Cuba.pdb
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Antlr3.Runtime.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\EntityFramework.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\EntityFramework.SqlServer.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Microsoft.Owin.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Microsoft.Owin.Security.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Newtonsoft.Json.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Owin.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Net.Http.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Net.Http.Formatting.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Net.Http.WebRequest.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Web.Helpers.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Web.Http.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Web.Http.WebHost.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Web.Mvc.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Web.Optimization.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Web.Razor.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Web.WebPages.Deployment.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Web.WebPages.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Web.WebPages.Razor.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\WebGrease.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Web.Helpers.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Web.Mvc.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Web.Optimization.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Web.Razor.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Web.WebPages.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Web.WebPages.Deployment.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Web.WebPages.Razor.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Antlr3.Runtime.pdb
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Newtonsoft.Json.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Net.Http.Formatting.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Web.Http.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\System.Web.Http.WebHost.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\EntityFramework.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\EntityFramework.SqlServer.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Microsoft.Owin.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Microsoft.Owin.Security.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\obj\Release\Cuba.csprojResolveAssemblyReference.cache
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\obj\Release\Cuba.dll
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\obj\Release\Cuba.pdb
