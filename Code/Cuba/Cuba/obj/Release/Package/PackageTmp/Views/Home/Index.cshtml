@@ -227,14 +227,14 @@
             });
         }
 
-        var dataLoaded = function (error, _stateData, _tweets, _congress, _nyData, _presidentData) {
+        var dataLoaded = function (error, _stateData, _tweets, _congress, _nyData, _presidentData, _t) {
 
-            /*console.log(_tweets);
+            //console.log(_t);
             var geo = '{ "type": "FeatureCollection", "features": [';
 
-            _tweets.forEach(function (d) {
+            _t.forEach(function (d) {
 
-                geo += '{"type": "Feature", "properties": {"Followers_Count": "' + d.followers + '", "Result": "' + d.Result + '", "Tweet": "' + d.Tweet + '", "city": "' + d.City + '", "state": "' + d.State + '", "time": ' + d['epoch_time(EST)'] + '}, "geometry":{ "type": "' + d.type + '", "coordinates": [[';
+                geo += '{"type": "Feature", "properties": {"Followers_Count": "' + d.followers + '", "Result": "' + d.Result + '", "city": "' + d.City + '", "state": "' + d.State + '", "time": ' + d['epoch_time(EST)'] + '}, "geometry":{ "type": "' + d.type + '", "coordinates": [[';
 
                 var spl = d.coordinates.split(";");
 
@@ -258,7 +258,7 @@
 
             geo += ']}';
 
-            console.log(geo);*/
+            console.log(geo);
 
 
             if (!error) {
@@ -305,11 +305,11 @@
         var startHere = function () {
             queue()
                 .defer(d3.json, '/data/states.topo.json')
-                .defer(d3.json, '/data/tweets_1.topo.json')
+                .defer(d3.json, '/data/tweets_final.topo.json')
                 .defer(d3.csv, '/data/legislators-current.csv')
                 .defer(d3.json, '/data/since.json')
                  .defer(d3.json, '/data/presidents.json')
-               // .defer(d3.csv, '/data/Tweets_Analysis.csv')
+                .defer(d3.csv, '/data/Tweets_Analysis.csv')
                 .await(dataLoaded);
         }
         startHere();

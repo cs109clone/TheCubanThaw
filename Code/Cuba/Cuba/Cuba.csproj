@@ -245,6 +245,7 @@
       <LastGenOutput>CubaModel.cs</LastGenOutput>
     </Content>
     <Content Include="Data\Tweets_Analysis.csv" />
+    <Content Include="Data\tweets_final.topo.json" />
     <None Include="Properties\PublishProfiles\Cuba.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\get_platform.js" />
