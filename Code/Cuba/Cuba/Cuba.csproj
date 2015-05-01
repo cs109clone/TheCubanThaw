@@ -224,7 +224,6 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Data\legislators-current.csv" />
     <Content Include="Data\states.topo.json" />
-    <Content Include="Data\tweets_1.topo.json" />
     <Content Include="Data\since.json" />
     <Content Include="Data\presidents.json" />
     <EntityDeploy Include="Models\CubaModel.edmx">
@@ -244,7 +243,6 @@
       <DependentUpon>CubaModel.edmx</DependentUpon>
       <LastGenOutput>CubaModel.cs</LastGenOutput>
     </Content>
-    <Content Include="Data\Tweets_Analysis.csv" />
     <Content Include="Data\tweets_final.topo.json" />
     <None Include="Properties\PublishProfiles\Cuba.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

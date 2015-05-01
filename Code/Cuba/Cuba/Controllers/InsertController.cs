@@ -35,7 +35,7 @@ namespace Cuba.Controllers
             Article article;
             while (true)
             {
-                url = "http://api.nytimes.com/svc/search/v2/articlesearch.json?callback=svc_search_v2_articlesearch&q=cuba+thaw&begin_date=20141217&end_date=" + end + "&sort=oldest&fl=_id%2Cword_count%2Cpub_date%2Cheadline%2Cmultimedia%2Csource%2Clead_paragraph%2Csnippet%2Cweb_url&page=" + page + "&api-key=91cd0f1d5b7d95ae8c92eccb516df20b:15:71932119";
+                url = "http://api.nytimes.com/svc/search/v2/articlesearch.json?callback=svc_search_v2_articlesearch&q=cuban+thaw&begin_date=20141217&end_date=" + end + "&sort=oldest&fl=_id%2Cword_count%2Cpub_date%2Cheadline%2Cmultimedia%2Csource%2Clead_paragraph%2Csnippet%2Cweb_url&page=" + page + "&api-key=91cd0f1d5b7d95ae8c92eccb516df20b:15:71932119";
                 client = new HttpClient();
                 client.BaseAddress = new Uri(url);
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -56,6 +56,8 @@ namespace Cuba.Controllers
                         article = new Article();
                         article.id = node._id;
                         article.pub_date = node.pub_date;
+                        if (node.word_count == null)
+                            node.word_count = "1";
                         article.word_count = Convert.ToInt32(node.word_count);
                         article.headline = node.headline.main;
                         article.source = node.source;

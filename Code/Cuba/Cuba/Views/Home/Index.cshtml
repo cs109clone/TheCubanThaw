@@ -227,7 +227,7 @@
             });
         }
 
-        var dataLoaded = function (error, _stateData, _tweets, _congress, _nyData, _presidentData, _t) {
+        var dataLoaded = function (error, _stateData, _tweets, _congress, _nyData, _presidentData) {
 
             //console.log(_t);
             //var geo = '{ "type": "FeatureCollection", "features": [';
@@ -307,9 +307,9 @@
                 .defer(d3.json, '/data/states.topo.json')
                 .defer(d3.json, '/data/tweets_final.topo.json')
                 .defer(d3.csv, '/data/legislators-current.csv')
-                .defer(d3.json, '/data/since.json')
+                .defer(d3.json, '/api/Articles')
                  .defer(d3.json, '/data/presidents.json')
-                .defer(d3.csv, '/data/Tweets_Analysis.csv')
+               // .defer(d3.csv, '/data/Tweets_Analysis.csv')
                 .await(dataLoaded);
         }
         startHere();
