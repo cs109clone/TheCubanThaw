@@ -183,5 +183,6 @@ C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cub
 C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\obj\Debug\Cuba.csprojResolveAssemblyReference.cache
 C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\obj\Debug\Cuba.dll
 C:\Users\IvanLima\Google Drive\Harvard\CS171\Final Project\TheCubanThaw\Code\Cuba\Cuba\obj\Debug\Cuba.pdb

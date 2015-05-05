@@ -1,0 +1,283 @@
+﻿<!--[if lt IE 10]>
+  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div class="wrapper loading">
+    <!-- Fixed header menu -->
+    <header id="header">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul id="menu" class="nav navbar-nav">
+                        <li data-menuanchor="home"><a href="#home">Home</a></li>
+                        <li data-menuanchor="tweet-map"><a href="#tweet-map">Tweet Map</a></li>
+                        <li data-menuanchor="since-then"><a href="#since-then">Since then</a></li>
+                        <li class="logo hidden-xs">@Html.ActionLink(" ", "Index", "Home")</li>
+                        <li data-menuanchor="election-2016"><a href="#election-2016">Election 2016</a></li>
+                        <li data-menuanchor="process-video"><a href="#process-video">Video</a></li>
+                        <li data-menuanchor="process-book"><a href="#process-book">Process</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </header>
+    <!-- /#menu -->
+
+    <div id="fullpage">
+        <div class="section" id="section0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
+                        <div class="headline text-center">The Cuban Thaw</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="section1">
+            <h1>Around The World</h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div id="tweetMap"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="section2">
+            <h1>Since Then</h1>
+            <div id="eventArticles" style="float: left; width: 30%; margin-left: 100px; height: 650px; max-height:650px; overflow-y: auto;">
+            </div>
+        </div>
+        <div class="section" id="section3">
+            <h1>Elections 2016</h1>
+            <svg id="mySvg" width="100" height="100">
+                <defs id="mdef">
+                    <pattern id="image0" x="0" y="0" height="10" width="10">
+                        <image x="-15" y="0" width="150" height="150" xlink:href="https://res.cloudinary.com/crowdpac/image/upload/d_avatar_f/v1416248304/candidates/cand9999817.jpg"></image>
+                    </pattern>
+                    <pattern id="image1" x="0" y="0" height="10" width="10">
+                        <image x="-15" y="0" width="150" height="150" xlink:href="https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1416249668/candidates/cand9999819.jpg"></image>
+                    </pattern>
+                    <pattern id="image2" x="0" y="0" height="10" width="10">
+                        <image x="-15" y="0" width="150" height="150" xlink:href="https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1416249884/candidates/cand9999822.jpg"></image>
+                    </pattern>
+                    <pattern id="image3" x="0" y="0" height="10" width="10">
+                        <image x="-15" y="0" width="150" height="150" xlink:href="https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1416248445/candidates/cand9999823.jpg"></image>
+                    </pattern>
+                    <pattern id="image4" x="0" y="0" height="10" width="10">
+                        <image x="-15" y="0" width="150" height="150" xlink:href="https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1406677421/candidates/cand1603.jpg"></image>
+                    </pattern>
+                    <pattern id="image5" x="0" y="0" height="10" width="10">
+                        <image x="-15" y="0" width="150" height="150" xlink:href="https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1416249908/candidates/cand9999837.jpg"></image>
+                    </pattern>
+                    <pattern id="image6" x="0" y="0" height="10" width="10">
+                        <image x="-15" y="0" width="150" height="150" xlink:href="https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1416249580/candidates/cand82171.jpg"></image>
+                    </pattern>
+                    <pattern id="image7" x="0" y="0" height="10" width="10">
+                        <image x="-15" y="0" width="150" height="150" xlink:href="https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1415665562/candidates/cand105110.jpg"></image>
+                    </pattern>
+                    <pattern id="image8" x="0" y="0" height="10" width="10">
+                        <image x="-15" y="0" width="150" height="150" xlink:href="https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1414772650/candidates/cand147768.jpg"></image>
+                    </pattern>
+                    <pattern id="image9" x="0" y="0" height="10" width="10">
+                        <image x="-15" y="0" width="150" height="150" xlink:href="https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1415665562/candidates/cand9999825.jpg"></image>
+                    </pattern>
+                    <pattern id="image10" x="0" y="0" height="10" width="10">
+                        <image x="-15" y="0" width="150" height="150" xlink:href="https://res.cloudinary.com/crowdpac/image/upload/d_avatar_f/v1419194300/candidates/cand10361904.jpg"></image>
+                    </pattern>
+                    <pattern id="image11" x="0" y="0" height="10" width="10">
+                        <image x="-15" y="0" width="150" height="150" xlink:href="https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1416250255/candidates/cand9999835.jpg"></image>
+                    </pattern>
+                    <pattern id="image12" x="0" y="0" height="10" width="10">
+                        <image x="-15" y="0" width="150" height="150" xlink:href="https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1415665566/candidates/cand9999830.jpg"></image>
+                    </pattern>
+                    <pattern id="image13" x="0" y="0" height="10" width="10">
+                        <image x="-15" y="0" width="150" height="150" xlink:href="https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1416250026/candidates/cand9999836.jpg"></image>
+                    </pattern>
+
+                    <pattern id="image14" x="0" y="0" height="10" width="10">
+                        <image x="-15" y="0" width="150" height="150" xlink:href="https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1406677431/candidates/cand1403.jpg"></image>
+                    </pattern>
+                    <pattern id="image15" x="0" y="0" height="10" width="10">
+                        <image x="-15" y="0" width="150" height="150" xlink:href="https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1416250355/candidates/cand9999833.jpg"></image>
+                    </pattern>
+                    
+                    <pattern id="image16" x="0" y="0" height="10" width="10">
+                        <image x="-15" y="0" width="150" height="150" xlink:href="https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1406677399/candidates/cand1235.jpg"></image>
+                    </pattern>
+                    <pattern id="image17" x="0" y="0" height="10" width="10">
+                        <image x="-15" y="0" width="150" height="150" xlink:href="https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1416249558/candidates/cand9999839.jpg"></image>
+                    </pattern>
+                    <pattern id="image18" x="0" y="0" height="10" width="10">
+                        <image x="-15" y="0" width="150" height="150" xlink:href="https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1417548212/candidates/cand10361902.jpg"></image>
+                    </pattern>
+                    <pattern id="image19" x="0" y="0" height="10" width="10">
+                        <image x="-15" y="0" width="150" height="150" xlink:href="https://res.cloudinary.com/crowdpac/image/upload/d_avatar_f/v1406677397/candidates/cand104635.jpg"></image>
+                    </pattern>
+</defs>
+            </svg>
+        </div>
+        <!-- VIDEO -->
+        <div class="section" id="section4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center">
+                        <iframe id="processVideo" src="//player.vimeo.com/video/126786478?api=1&player_id=processVideo" width="100%" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end VIDEO -->
+        <!-- PROCESS -->
+        <div class="section" id="section5">
+            <div class="container-fluid">
+                <div class="row">
+                    <div id="processPdf"></div>
+                </div>
+            </div>
+        </div>
+        <!-- end PROCESS -->
+
+    </div>
+</div>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+</script>
+
+<!-- Load Scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="vendors/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/d3.geo.projection.v0.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="http://d3js.org/queue.v1.min.js"></script>
+<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<script src="vendors/jquery.slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="vendors/jquery.fullpage/jquery.fullPage.min.js" type="text/javascript"></script>
+<script src="vendors/jquery.imagesloaded/imagesloaded.js" type="text/javascript"></script>
+<script src="~/js/pdfobject.js"></script>
+<script src="~/js/President_Vis.js"></script>
+<script src="~/js/Event_Vis.js"></script>
+<script src="~/js/tweets.js"></script>
+
+<script type="text/javascript">
+      $(document).ready(function() {
+
+        $body = $('body');
+        $wrapper = $('.wrapper');
+
+        $body.imagesLoaded( function() {
+          initFullPage();
+        })
+
+        function initFullPage() {
+          $('#fullpage').fullpage({
+            // sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
+            anchors: ['home', 'tweet-map', 'since-then', 'election-2016', 'process-video', 'process-book'],
+            menu: '#menu',
+            afterLoad: function(anchorLink, index){
+              $body.removeClass('loading');
+              $wrapper.removeClass('loading');
+              // //section 2
+              // if(index == 2){
+              //   //moving the image
+              //   $('#section1').find('img').delay(500).animate({
+              //     left: '0%'
+              //   }, 1500, 'easeOutExpo');
+
+              //   $('#section1').find('p').first().fadeIn(1800, function(){
+              //     $('#section1').find('p').last().fadeIn(1800);
+              //   });;
+
+              // }
+
+              // //section 3
+              // if(anchorLink == '3rdPage'){
+              //   //moving the image
+              //   $('#section2').find('.intro').delay(500).animate({
+              //     left: '0%'
+              //   }, 1500, 'easeOutExpo');
+              // }
+            },
+            afterRender: function(anchorLink, index) {
+
+            }
+          });
+        }
+
+        function initPdf()
+        {
+          var pdf = new PDFObject({
+            url: 'pdf/process.pdf',
+            // id: "pdfRendered",
+            pdfOpenParams: {
+              view: "FitV"
+            }
+          }).embed("processPdf");
+
+        }
+
+      });
+</script>
+    
+<script>
+    $(function () {
+
+        var presidentData = [];
+        var nyData = [];
+       
+        var initVis = function () {
+            var MyEventHandler = new Object();
+            var pre_vis = new PresidentVis(d3.select("#section3"), presidentData, MyEventHandler);
+            var event_vis = new EventVis(d3.select("#section2"), nyData, MyEventHandler);
+           
+            $(MyEventHandler).bind("runSlide", function (event, data) {
+
+            });
+        }
+
+        var dataLoaded = function (error, _presidentData, _nyData) {
+
+            console.log(_nyData)
+            if (!error) {
+                presidentData = _presidentData;
+                nyData = _nyData;
+                initVis();
+            }
+        }
+
+        var startHere = function () {
+            queue()
+                .defer(d3.json, '/data/presidents.json')
+                .defer(d3.json, '/data/since.json')
+                .await(dataLoaded);
+        }
+        startHere();
+    })
+
+    var getInnerWidth = function (element) {
+        var style = window.getComputedStyle(element.node(), null);
+
+        return parseInt(style.getPropertyValue('width'));
+    }
+
+</script>
