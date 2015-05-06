@@ -12,8 +12,8 @@ EventVis = function (_presElement, _data, _eventHandler) {
 
     this.dateFormat = d3.time.format("%m/%d/%Y");
 
-    this.margin = { top: 0, right: 40, bottom: 60, left: 40 },
-    this.width = getInnerWidth(this.presElement) - this.margin.left - this.margin.right,
+    this.margin = { top: 0, right: 40, bottom: 80, left: 100 },
+    this.width = 700, //getInnerWidth(this.presElement) - this.margin.left - this.margin.right,
     this.height = 600 - this.margin.bottom - this.margin.top;
 
     this.initVis();
@@ -52,6 +52,7 @@ EventVis.prototype.initVis = function () {
     .x(this.x)
     .on("brush", function (d) {  that.brushed() });
 
+    this.color = d3.scale.category20();
    
 
     /*this.brush = d3.svg.brush()
@@ -107,17 +108,17 @@ EventVis.prototype.updateVis = function () {
                 .data(this.displayData)
                 .enter()
                 .append('circle')
-                .attr('fill', 'black')
+                .attr('fill', function (d, i) { return that.color(i); })
                 .attr("stroke-width", 3)
                 .attr('r', 10)
                 .attr('cx', function (d, i) {
-                   
+
                     return that.x(new Date(d.pub_date));
 
                 })
                 .attr('cy', function (d) {
                     return that.y(d.word_count);
-                })
+                });
 
     this.svg.append("g")
        .attr("class", "brush")
@@ -138,10 +139,14 @@ EventVis.prototype.updateArticles = function () {
      var details = article.append('div')
                           .attr('class', 'art');
 
-     var headline = details.append('span');
-     var pub_date = details.append('span');
-     var source = details.append('span');
+     //var headline = details.append('span').text(function (d) { return d.headline; });
+     var link = details.append('a')
+                .attr('href', function (d) { return d.web_url; })
+                .text(function (d) { return d.headline; })
+                .attr('target', "_blank").append('br');
 
+     var pub_date = details.append('span').text(function (d) { return 'Publication Date: ' + d.pub_date }).append('br');
+     var source = details.append('span').text(function (d) { return 'Source:' + d.source });
 }
 
 EventVis.prototype.brushed = function () {

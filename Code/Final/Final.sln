@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Final", "Final\Final.csproj", "{689C1CF5-37C4-48EF-BCC0-4B709FC34D75}"
+# Visual Studio Express 2013 for Web
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Final", "Final\Final.csproj", "{BFCE1CAD-234B-4351-AC78-72AFE9D16F12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{689C1CF5-37C4-48EF-BCC0-4B709FC34D75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{689C1CF5-37C4-48EF-BCC0-4B709FC34D75}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{689C1CF5-37C4-48EF-BCC0-4B709FC34D75}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{689C1CF5-37C4-48EF-BCC0-4B709FC34D75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFCE1CAD-234B-4351-AC78-72AFE9D16F12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFCE1CAD-234B-4351-AC78-72AFE9D16F12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFCE1CAD-234B-4351-AC78-72AFE9D16F12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFCE1CAD-234B-4351-AC78-72AFE9D16F12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

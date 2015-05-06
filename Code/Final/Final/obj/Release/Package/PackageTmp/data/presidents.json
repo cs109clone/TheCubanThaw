@@ -1,0 +1,499 @@
+﻿[
+    {
+        "name": {
+            "first": "Hillary",
+            "last": "Clinton",
+            "official_full": "Hillary Clinton"
+        },
+        "bio": {
+            "picture": "https://res.cloudinary.com/crowdpac/image/upload/d_avatar_f/v1416248304/candidates/cand9999817.jpg",
+            "birthday": "1947-10-26",
+            "gender": "F",
+            "religion": "Christian",
+            "party": "Democrat",
+            "education": {
+                "level": "Graduate",
+                "type": "Law"
+            }
+        },
+        "experience": {
+            "role": "Secretary of State",
+            "department": "Federal",
+            "years": 4
+        },
+        "cuba": {
+            "support": "Yes",
+            "url": "http://www.politico.com/story/2014/12/hillary-clinton-cuba-113661.html"
+        }
+    },
+    {
+        "name": {
+            "first": "Martin",
+            "last": "O'Malley",
+            "official_full": "Martin O'Malley"
+        },
+        "bio": {
+            "picture": "https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1416249668/candidates/cand9999819.jpg",
+            "birthday": "1963-01-18",
+            "gender": "M",
+            "religion": "Catholic",
+            "party": "Democrat",
+            "education": {
+                "level": "Graduate",
+                "type": "Law"
+            }
+        },
+        "experience": {
+            "role": "Governor",
+            "department": "Maryland",
+            "years": 8
+        },
+        "cuba": {
+            "support": "Yes",
+            "url": "http://www.politico.com/story/2014/12/cuba-top-2016-contenders-113642.html"
+        }
+    },
+    {
+        "name": {
+            "first": "Jim",
+            "last": "Webb",
+            "official_full": "Jim Webb"
+        },
+        "bio": {
+            "picture": "https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1416249884/candidates/cand9999822.jpg",
+            "birthday": "1946-02-09",
+            "gender": "M",
+            "religion": "Christian",
+            "party": "Democrat",
+            "education": {
+                "level": "Graduate",
+                "type": "Law"
+            }
+        },
+        "experience": {
+            "role": "Senator",
+            "department": "Virginia",
+            "years": 6
+        },
+        "cuba": {
+            "support": "Yes",
+            "url": "https://twitter.com/jimwebbusa/status/545299898552176640"
+        }
+    },
+    {
+        "name": {
+            "first": "Jeb",
+            "last": "Bush",
+            "official_full": "Jeb Bush"
+        },
+        "bio": {
+            "picture": "https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1416248445/candidates/cand9999823.jpg",
+            "birthday": "1953-02-11",
+            "gender": "M",
+            "religion": "Catholic",
+            "party": "Republican",
+            "education": {
+                "level": "Undergraduate",
+                "type": "Latin American Studies"
+            }
+        },
+        "experience": {
+            "role": "Governor",
+            "department": "Florida",
+            "years": 8
+        },
+        "cuba": {
+            "support": "No",
+            "url": "http://www.politico.com/story/2014/12/cuba-top-2016-contenders-113642.html"
+        }
+    },
+    {
+        "name": {
+            "first": "Marco",
+            "last": "Rubio",
+            "official_full": "Marco Rubio"
+        },
+        "bio": {
+            "picture": "https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1406677421/candidates/cand1603.jpg",
+            "birthday": "1971-05-28",
+            "gender": "M",
+            "religion": "Catholic",
+            "party": "Republican",
+            "education": {
+                "level": "Graduate",
+                "type": "Law"
+            }
+        },
+        "experience": {
+            "role": "Senator",
+            "department": "Florida",
+            "years": 4
+        },
+        "cuba": {
+            "support": "No",
+            "url": "http://www.politico.com/story/2014/12/cuba-top-2016-contenders-113642.html"
+        }
+    },
+    {
+        "name": {
+            "first": "Scott",
+            "last": "Walker",
+            "official_full": "Scott Walker"
+        },
+        "bio": {
+            "picture": "https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1416249908/candidates/cand9999837.jpg",
+            "birthday": "1967-11-02",
+            "gender": "M",
+            "religion": "Christian",
+            "party": "Republican",
+            "education": {
+                "level": "Secondary",
+                "type": "High School"
+            }
+        },
+        "experience": {
+            "role": "Governor",
+            "department": "Wisconsin",
+            "years": 4
+        },
+        "cuba": {
+            "support": "No",
+            "url": "http://fox6now.com/2014/12/17/gov-scott-walker-calls-normalization-with-cuba-bad-idea/"
+        }
+    },
+    {
+        "name": {
+            "first": "Chris",
+            "last": "Christie",
+            "official_full": "Chris Christie"
+        },
+        "bio": {
+            "picture": "https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1416249580/candidates/cand82171.jpg",
+            "birthday": "1962-09-06",
+            "gender": "M",
+            "religion": "Catholic",
+            "party": "Republican",
+            "education": {
+                "level": "Graduate",
+                "type": "Law"
+            }
+        },
+        "experience": {
+            "role": "Governor",
+            "department": "New Jersey",
+            "years": 5
+        },
+        "cuba": {
+            "support": "maybe",
+            "url": "http://www.huffingtonpost.com/2014/12/21/chris-christie-cuba_n_6363432.html"
+        }
+    },
+    {
+        "name": {
+            "first": "Ted",
+            "last": "Cruz",
+            "official_full": "Ted Cruz"
+        },
+        "bio": {
+            "picture": "https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1415665562/candidates/cand105110.jpg",
+            "birthday": "",
+            "gender": "M",
+            "religion": "",
+            "party": "Republican"
+        },
+        "experience": {
+            "role": "",
+            "years": ""
+        },
+        "cuba": {
+            "support": "No",
+            "url": ""
+        }
+    },
+    {
+        "name": {
+            "first": "Rand",
+            "last": "Paul",
+            "official_full": "Rand Paul"
+        },
+        "bio": {
+            "picture": "https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1414772650/candidates/cand147768.jpg",
+            "birthday": "",
+            "gender": "M",
+            "religion": "",
+            "party": "Republican"
+        },
+        "experience": {
+            "role": "",
+            "years": ""
+        },
+        "cuba": {
+            "support": "Yes",
+            "url": ""
+        }
+    },
+    {
+        "name": {
+            "first": "Ben",
+            "last": "Carson",
+            "official_full": "Ben Carson"
+        },
+        "bio": {
+            "picture": "https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1415665562/candidates/cand9999825.jpg",
+            "birthday": "",
+            "gender": "M",
+            "religion": "",
+            "party": "Republican"
+        },
+        "experience": {
+            "role": "",
+            "years": ""
+        },
+        "cuba": {
+            "support": "No",
+            "url": ""
+        }
+    },
+    {
+        "name": {
+            "first": "Carly",
+            "last": "Fiorina",
+            "official_full": "Carly Fiorina"
+        },
+        "bio": {
+            "picture": "https://res.cloudinary.com/crowdpac/image/upload/d_avatar_f/v1419194300/candidates/cand10361904.jpg",
+            "birthday": "",
+            "gender": "F",
+            "religion": "",
+            "party": "Republican"
+        },
+        "experience": {
+            "role": "",
+            "years": ""
+        },
+        "cuba": {
+            "support": "No",
+            "url": ""
+        }
+    },
+    {
+        "name": {
+            "first": "Mike",
+            "last": "Huckabee",
+            "official_full": "Mike Huckabee"
+        },
+        "bio": {
+            "picture": "https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1416250255/candidates/cand9999835.jpg",
+            "birthday": "",
+            "gender": "M",
+            "religion": "",
+            "party": "Republican"
+        },
+        "experience": {
+            "role": "",
+            "years": ""
+        },
+        "cuba": {
+            "support": "No",
+            "url": ""
+        }
+    },
+    {
+        "name": {
+            "first": "Rick",
+            "last": "Perry",
+            "official_full": "Rick Perry"
+        },
+        "bio": {
+            "picture": "https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1415665566/candidates/cand9999830.jpg",
+            "birthday": "",
+            "gender": "M",
+            "religion": "",
+            "party": "Republican"
+        },
+        "experience": {
+            "role": "",
+            "years": ""
+        },
+        "cuba": {
+            "support": "No",
+            "url": ""
+        }
+    },
+    {
+        "name": {
+            "first": "Bobby",
+            "last": "Jindal",
+            "official_full": "Bobby Jindal"
+        },
+        "bio": {
+            "picture": "https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1416250026/candidates/cand9999836.jpg",
+            "birthday": "",
+            "gender": "M",
+            "religion": "",
+            "party": "Repubican"
+        },
+        "experience": {
+            "role": "",
+            "years": ""
+        },
+        "cuba": {
+            "support": "No",
+            "url": ""
+        }
+    },
+    {
+        "name": {
+            "first": "Lindsay",
+            "last": "Graham",
+            "official_full": "Lindsay Graham"
+        },
+        "bio": {
+            "picture": "https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1406677431/candidates/cand1403.jpg",
+            "birthday": "",
+            "gender": "M",
+            "religion": "",
+            "party": "Republican"
+        },
+        "experience": {
+            "role": "",
+            "years": ""
+        },
+        "cuba": {
+            "support": "No",
+            "url": ""
+        }
+    },
+    {
+        "name": {
+            "first": "Rick",
+            "last": "Santorum",
+            "official_full": "Rick Santorum"
+        },
+        "bio": {
+            "picture": "https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1416250355/candidates/cand9999833.jpg",
+            "birthday": "",
+            "gender": "M",
+            "religion": "",
+            "party": "Republican"
+        },
+        "experience": {
+            "role": "",
+            "years": ""
+        },
+        "cuba": {
+            "support": "No",
+            "url": ""
+        }
+    },
+    {
+        "name": {
+            "first": "Bernie",
+            "last": "Sanders",
+            "official_full": "Bernie Sanders"
+        },
+        "bio": {
+            "picture": "https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1406677399/candidates/cand1235.jpg",
+            "birthday": "",
+            "gender": "M",
+            "religion": "",
+            "party": "Independent"
+        },
+        "experience": {
+            "role": "",
+            "years": ""
+        },
+        "cuba": {
+            "support": "No",
+            "url": ""
+        }
+    },
+	{
+        "name": {
+            "first": "Lincoln",
+            "last": "Chaffee",
+            "official_full": "Lincoln Chafee"
+        },
+        "bio": {
+            "picture": "https://res.cloudinary.com/crowdpac/image/upload/d_avatar_m/v1406677399/candidates/cand1235.jpg",
+            "birthday": "",
+            "gender": "M",
+            "religion": "",
+            "party": "Democrat"
+        },
+        "experience": {
+            "role": "",
+            "years": ""
+        },
+        "cuba": {
+            "support": "Yes",
+            "url": ""
+        }
+    },
+	{
+        "name": {
+            "first": "John",
+            "last": "Kasich",
+            "official_full": "John Kasich"
+        },
+        "bio": {
+            "picture": "https:\/\/res.cloudinary.com\/crowdpac\/image\/upload\/d_avatar_m\/v1416249558\/candidates\/cand9999839.jpg",
+            "birthday": "",
+            "gender": "M",
+            "religion": "",
+            "party": "Republican"
+        },
+        "experience": {
+            "role": "",
+            "years": ""
+        },
+        "cuba": {
+            "support": "No",
+            "url": ""
+        }
+    },
+	{
+        "name": {
+            "first": "Mike",
+            "last": "Pence",
+            "official_full": "Mike Pence"
+        },
+        "bio": {
+            "picture": "https:\/\/res.cloudinary.com\/crowdpac\/image\/upload\/d_avatar_m\/v1417548212\/candidates\/cand10361902.jpg",
+            "birthday": "",
+            "gender": "M",
+            "religion": "",
+            "party": "Republican"
+        },
+        "experience": {
+            "role": "",
+            "years": ""
+        },
+        "cuba": {
+            "support": "No",
+            "url": ""
+        }
+    },
+	{
+        "name": {
+            "first": "Elizabeth",
+            "last": "Warren",
+            "official_full": "Elizabeth Warren"
+        },
+        "bio": {
+            "picture": "https:\/\/res.cloudinary.com\/crowdpac\/image\/upload\/d_avatar_f\/v1406677397\/candidates\/cand104635.jpg",
+            "birthday": "",
+            "gender": "F",
+            "religion": "",
+            "party": "Democrat"
+        },
+        "experience": {
+            "role": "",
+            "years": ""
+        },
+        "cuba": {
+            "support": "Yes",
+            "url": ""
+        }
+    }
+]

@@ -248,12 +248,13 @@ MapVis.prototype.aggregate = function () {
     var current = this.minTime;
     for (var i = 0; i < this.totalHours - 1; i++) {
 
-        current = current + this.hour;
+        
 
         var res = this.tweets.location.filter(function (d) {
             if (d.properties.time >= current && d.properties.time < current + that.hour)
                 return d.properties.time;
         });
+        current = current + this.hour;
         this.timeBucket.push(res);
     }
 }
