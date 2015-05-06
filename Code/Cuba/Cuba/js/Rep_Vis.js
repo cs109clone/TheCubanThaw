@@ -83,7 +83,7 @@ RepVis.prototype.initVis = function () {
         .attr("dy", ".71em")
         .style("text-anchor", "end")
         .text("Total");
-
+/*
     this.tip = d3.tip()
           .attr('class', 'd3-tip')
             .offset([-10, 0])
@@ -101,7 +101,7 @@ RepVis.prototype.initVis = function () {
             })
 
     this.svgState.call(this.tip);
-
+*/
 
     // filter, aggregate, modify data
     this.wrangleData();

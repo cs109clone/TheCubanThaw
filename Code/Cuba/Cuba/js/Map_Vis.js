@@ -99,7 +99,7 @@ MapVis.prototype.initVis = function () {
 
     this.path = d3.geo.path().projection(this.projection);
 
-    this.tip = d3.tip()
+     this.tip = d3.tip()
           .attr('class', 'd3-tip')
             .offset([-10, 0])
             .html(function (d, i) {
@@ -108,12 +108,8 @@ MapVis.prototype.initVis = function () {
                 var result = "<strong>" + d.properties.code + "</strong><br/>";
                 result += "<span>Democrat rate: " + d.properties.obama_rate + "%</span><br/>";
                 result += "<span>Republican rate: " + d.properties.romney_rate + "%</span><br/>";
-                
-               
-
                 return result;
             })
-
     this.svg.call(this.tip);
 
 
@@ -235,7 +231,7 @@ MapVis.prototype.presidentialData = function () {
             else
                 return that.republicanColor(d.properties.romney_rate);
         })
-        .on('mouseover', this.tip.show)
+        //.on('mouseover', this.tip.show)
         .on('mouseout', this.tip.hide)
         .on("click", null);
 
