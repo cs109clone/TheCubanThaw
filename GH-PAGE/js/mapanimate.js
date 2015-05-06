@@ -5,14 +5,28 @@ var byseconds;  // second by second list of lists of animatable events
                 // moment
 var seconds;    // list of seconds on the timeline for which animatable
                 // events exist
-var radius_scale = d3.scale.log().base(3),  // maps follower count to SVG radius
-    stroke_scale = d3.scale.log().base(2), // maps favoite counts to SVG stroke withd
+var radius_scale = null, // maps follower count to SVG radius
+    stroke_scale = null, // maps favorite counts to SVG stroke width
     factor = 20,   // how much faster than real time should animation run?
     pause = 0,     // should the animation pause?
     ntweets = 0;   // number of tweets animated
 
     // set pause to 1 to pause
     // call animate_by_second(pause) to restart
+
+choose_world_map();  // default to world map
+
+function choose_us_map() {
+    radius_scale = d3.scale.log().base(1.3);
+    stroke_scale = d3.scale.log().base(1.5);
+    display_us_map();
+}
+
+function choose_world_map() {
+    radius_scale = d3.scale.log().base(3);
+    stroke_scale = d3.scale.log().base(2);
+    display_world_map();
+}
 
 
 function tweet_animation_on(btn) {
@@ -23,7 +37,7 @@ function tweet_animation_on(btn) {
     // d3.select("#pauseplay").on('click', tweet_animation_off);
 }
 
-function tweet_animation_off(btn) {  
+function tweet_animation_off(btn) {
     console.log("clicking off");
     btn_off();
     pause = 1;
@@ -32,15 +46,15 @@ function tweet_animation_off(btn) {
 
 function tweet_animation_reset() {
   ntweets = 0;
-  pause = 1;  
+  pause = 1;
   periodic_updates(0);
   btn_off();
 }
 
-function btn_off() {  
+function btn_off() {
   d3.select('#pauseplay').attr('data-value', 'off');
   d3.select('#pauseplay').select('span.text').html('Play');
-  d3.select('#pauseplay').select('span.glyphicon').classed({'glyphicon': true, 'glyphicon-play': true, 'glyphicon-pause': false}); 
+  d3.select('#pauseplay').select('span.glyphicon').classed({'glyphicon': true, 'glyphicon-play': true, 'glyphicon-pause': false});
 }
 
 function btn_on() {
@@ -52,15 +66,26 @@ function btn_on() {
 d3.select("#pauseplay").on('click', function(e) {
   var state = d3.select(this).attr('data-value');
   if(state == 'off') {
-    tweet_animation_on(this);    
+    tweet_animation_on(this);
   } else if(state == 'on') {
-    tweet_animation_off(this);    
-  } 
+    tweet_animation_off(this);
+  }
 });
 
-d3.select("#stop").on('click', function(e) {  
-  tweet_animation_reset();  
+d3.select("#stop").on('click', function(e) {
+  tweet_animation_reset();
 })
+
+d3.select("#whichmap").on("change", function() {
+    var selectedIndex = d3.select("#whichmap").property('selectedIndex');
+    console.log("changed", selectedIndex);
+    if (selectedIndex == 1) {
+        choose_us_map();
+    }
+    else {
+        choose_world_map();
+    }
+});
 
 /*
  * Show a single tweet at the given latitude and longitude, scaled for the
@@ -71,7 +96,7 @@ function show_tweet(lat, lng, nfollowers, nfavor, is_rt) {
     var radius = (nfollowers == 0) ? 1 : radius_scale(nfollowers),
         strokew = (nfavor == 0) ? 0 : Math.max(radius_scale(nfavor), 0.5),
         projxy = projection([lng, lat]);
-    
+
     svg.append("circle")
         .attr("cx", projxy[0])
         .attr("cy", projxy[1])
@@ -80,17 +105,17 @@ function show_tweet(lat, lng, nfollowers, nfavor, is_rt) {
         .attr('stroke', (strokew == 0 ? 'none' : '#9900FF'))
         .attr('stroke-width', 0)
         .transition()       // grow in
-        .ease(Math.sqrt)
-        .duration(1000)
-        .attr("r", radius)
-        .attr("stroke-width", strokew + "px")
-        .attr("stroke-opacity", 1)
+            .ease(Math.sqrt)
+            .duration(1000)
+            .attr("r", radius)
+            .attr("stroke-width", strokew + "px")
+            .attr("stroke-opacity", 1)
         .transition()
-        .duration(1000)   // supernova and dissipate
-        .ease(Math.sqrt)
-        .attr("r", radius * 1.5)
-        .style("fill-opacity", 1e-6)
-        .style("stroke-opacity", 1e-6)
+            .duration(1000)   // supernova and dissipate
+            .ease(Math.sqrt)
+            .attr("r", radius * 1.5)
+            .style("fill-opacity", 1e-6)
+            .style("stroke-opacity", 1e-6)
         .remove();        // exit stage left
 }
 
@@ -130,7 +155,7 @@ function animate_by_second(sec_index) {
         var delay = (seconds[next_index] - seconds[sec_index]) / factor;
         setTimeout(function(){ animate_by_second(next_index); }, delay);
     }
-    else {      
+    else {
         // Once more unto the breach, dear friends, once more.
         periodic_updates(sec_index);
         btn_off();

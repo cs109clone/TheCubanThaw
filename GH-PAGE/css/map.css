@@ -21,14 +21,19 @@
 }
 
 .land {
-  fill: #222;
-  fill: white;
+  fill: skyblue;
 }
 
 .boundary {
   fill: none;
   stroke: #fff;
   stroke-width: .5px;
+}
+
+.state-boundary {
+  fill: none;
+  stroke: white;
+  stroke-width: 1px;
 }
 
 .tweet {
