@@ -9,10 +9,13 @@ var radius_scale = null, // maps follower count to SVG radius
     stroke_scale = null, // maps favorite counts to SVG stroke width
     factor = 20,   // how much faster than real time should animation run?
     pause = 0,     // should the animation pause?
-    ntweets = 0;   // number of tweets animated
+    ntweets = 0,   // number of tweets animated
+    dataset = "data/coresamp.json";  // our dataset
 
     // set pause to 1 to pause
     // call animate_by_second(pause) to restart
+
+display_slider();
 
 choose_world_map();  // default to world map
 
@@ -28,6 +31,54 @@ function choose_world_map() {
     display_world_map();
 }
 
+d3.select("#whichmap").on("change", function() {
+    var selectedIndex = d3.select("#whichmap").property('selectedIndex');
+    if (selectedIndex == 1) {
+        choose_us_map();
+    }
+    else {
+        choose_world_map();
+    }
+});
+
+
+d3.select("#whichdata").on("change", function() {
+    var selectedIndex = d3.select("#whichdata").property('selectedIndex');
+    if (selectedIndex == 1) {
+        dataset = "data/bigsamp.json"; // God help your network
+        window.alert("This may take a moment. Please stand by.");
+    }
+    else {
+        dataset = "data/coresamp.json";
+    }
+    load_data(dataset);
+});
+
+
+function load_data(filepath) {
+    d3.json(filepath, function(error, data) {
+        // set_time_slider(data, new Date(data.from), new Date(data.to));
+        seconds = data.seconds;
+        console.log("event frames", seconds.length);
+        byseconds = data.byseconds;
+        ntweets = 0;
+        periodic_updates(0);
+        if (filepath == "data/bigsamp.json") {
+            window.alert("Your data is ready.");
+        }
+    });
+}
+
+load_data(dataset);
+
+
+function display_slider() {
+    var slide = d3.slider().axis(true).min(0).max(20).value(4);
+    slide.on("slide", function(event, value) {
+        console.log("sliding", value);
+    });
+    d3.select("#mapSlider").call(slide);
+}
 
 function tweet_animation_on(btn) {
     console.log("clicking on");
@@ -76,16 +127,6 @@ d3.select("#stop").on('click', function(e) {
   tweet_animation_reset();
 })
 
-d3.select("#whichmap").on("change", function() {
-    var selectedIndex = d3.select("#whichmap").property('selectedIndex');
-    console.log("changed", selectedIndex);
-    if (selectedIndex == 1) {
-        choose_us_map();
-    }
-    else {
-        choose_world_map();
-    }
-});
 
 /*
  * Show a single tweet at the given latitude and longitude, scaled for the
@@ -161,17 +202,3 @@ function animate_by_second(sec_index) {
         btn_off();
     }
 }
-
-/*
- * Start the show. Get JSON. Start the animation.
- */
-
-d3.json("data/coresamp.json", function(error, data) {
-    // console.log("data", data);
-    // set_time_slider(data, new Date(data.from), new Date(data.to));
-    seconds = data.seconds;
-    byseconds = data.byseconds;
-    ntweets = 0;
-    periodic_updates(0);
-    // animate_by_second(0);
-});
