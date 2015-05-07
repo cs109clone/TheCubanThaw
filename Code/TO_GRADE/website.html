@@ -19,6 +19,7 @@
     <!-- Load Styles -->
     <link rel="stylesheet" href="vendors/bootstrap/css/bootstrap.min.css" type="text/css"/>
     <link rel="stylesheet" href="vendors/jquery.fullpage/jquery.fullPage.css" type="text/css"/>
+    <link rel="stylesheet" href="css/d3.slider.css" type="text/css"/>
     <link rel="stylesheet" href="css/map.css" type="text/css"/>
     <link rel="stylesheet" href="css/main.css" type="text/css"/>
   </head>
@@ -76,12 +77,19 @@
                 <div id="tweets-seen">Tweets Seen<br><span id="tweets-seen-number">0</span></div>
                 <div id="tweetMap"></div>
                 <div id="controls">
-                  <select id="whichmap" style="margin-right:12px; color: blue;">
+                  <select id="whichmap" style="margin-right:12px;">
                     <option>World</option>
                     <option>United States</option>
                   </select>
+                  <select id="whichdata" style="margin-right:12px;">
+                    <option title="recommended">~70K tweets</option>
+                    <option title="extended">~770K tweets</option>
+                  </select>
                   <button id="pauseplay" class="btn btn-success" data-value="off"><span class="glyphicon glyphicon-play" aria-hidden="true"></span>  <span class="text">Play</span></button>
                   <button id="stop" class="btn btn-danger"><span class="glyphicon glyphicon-stop" aria-hidden="true"></span>  Reset</button>
+                  <div style="display: inline-block; margin-left: 24px">
+                    <div id="mapSlider" class="d3-slider d3-slider-horizontal" style="width: 3in;"></div>
+                  </div>
                 </div>
                 <div id="legend">
                   <p><span class="red"></span> Original tweet</p>
@@ -231,6 +239,7 @@
 
     <script src="js/pdfobject.js"></script>
     <script src="js/worldmap.js"></script>
+    <script src="js/d3.slider.js"></script>
     <script src="js/mapanimate.js"></script>
     <script src="js/eventViz.js"></script>
     <script src="js/presidentViz.js"></script>
