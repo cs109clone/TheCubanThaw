@@ -10,7 +10,9 @@ var radius_scale = null, // maps follower count to SVG radius
     factor = 20,   // how much faster than real time should animation run?
     pause = 0,     // should the animation pause?
     ntweets = 0,   // number of tweets animated
-    dataset = "data/coresamp.json";  // our dataset
+    dataset = "data/coresamp.json",  // our dataset
+    slide = null,  // slider
+    tweets_seen = null; // cumulative tweets before this frame
 
     // set pause to 1 to pause
     // call animate_by_second(pause) to restart
@@ -20,8 +22,8 @@ display_slider();
 choose_world_map();  // default to world map
 
 function choose_us_map() {
-    radius_scale = d3.scale.log().base(1.3);
-    stroke_scale = d3.scale.log().base(1.5);
+    radius_scale = d3.scale.log().base(2);
+    stroke_scale = d3.scale.log().base(2);
     display_us_map();
 }
 
@@ -46,7 +48,7 @@ d3.select("#whichdata").on("change", function() {
     var selectedIndex = d3.select("#whichdata").property('selectedIndex');
     if (selectedIndex == 1) {
         dataset = "data/bigsamp.json"; // God help your network
-        window.alert("This may take a moment. Please stand by.");
+        window.alert("Loading the full 132 MB dataset. Please stand by.");
     }
     else {
         dataset = "data/coresamp.json";
@@ -61,6 +63,7 @@ function load_data(filepath) {
         seconds = data.seconds;
         console.log("event frames", seconds.length);
         byseconds = data.byseconds;
+        create_tweets_seen();
         ntweets = 0;
         periodic_updates(0);
         if (filepath == "data/bigsamp.json") {
@@ -69,16 +72,56 @@ function load_data(filepath) {
     });
 }
 
-load_data(dataset);
+load_data(dataset);  // load the default data
 
 
 function display_slider() {
-    var slide = d3.slider().axis(true).min(0).max(20).value(4);
-    slide.on("slide", function(event, value) {
-        console.log("sliding", value);
+    var axis = d3.svg.axis().ticks(4);
+    slide = d3.slider().axis(axis).min(0).max(100).value(0);
+    slide.on("slideend", function(event, value) {
+        console.log("slid", value);
+        slide_to_immediate(value);
     });
     d3.select("#mapSlider").call(slide);
 }
+
+function slide_to(percent) {
+    if (!seconds) {  // no data loaded yet
+        slide.value(0);
+    }
+    pause = 1;
+    var new_index = Math.round(percent / 100 * seconds.length);
+    new_index = Math.min(new_index, seconds.length);
+
+    setTimeout(function() {
+        console.log("percent on timeout", percent);
+        slide.value(percent);
+        pause = 0;
+        ntweets = tweets_seen[new_index];
+        periodic_updates(new_index);
+        animate_by_second(new_index);
+    }, 2100);
+}
+
+function slide_to_immediate(percent) {
+    if (!seconds) {  // no data loaded yet
+        slide.value(0);
+    }
+    pause = 1;
+    var new_index = Math.round(percent / 100 * seconds.length);
+    new_index = Math.min(new_index, seconds.length);
+    d3.timer.flush();
+
+    setTimeout(function() {
+        console.log("percent on timeout", percent);
+        slide.value(percent);
+        pause = 0;
+        ntweets = tweets_seen[new_index];
+        periodic_updates(new_index);
+        animate_by_second(new_index);
+    }, 100);
+}
+
 
 function tweet_animation_on(btn) {
     console.log("clicking on");
@@ -138,6 +181,9 @@ function show_tweet(lat, lng, nfollowers, nfavor, is_rt) {
         strokew = (nfavor == 0) ? 0 : Math.max(radius_scale(nfavor), 0.5),
         projxy = projection([lng, lat]);
 
+    radius = Math.max(1, radius);
+    strokew = Math.max(0, strokew);
+
     svg.append("circle")
         .attr("cx", projxy[0])
         .attr("cy", projxy[1])
@@ -166,9 +212,25 @@ function show_tweet(lat, lng, nfollowers, nfavor, is_rt) {
  */
 
 function periodic_updates(sec_index) {
-  d3.select("#tweets-seen-number").text(ntweets.toLocaleString());
+    if (seconds) {
+        // console.log("seconds.length", seconds.length);
+        var slide_position = (sec_index / seconds.length) * 100;
+        // console.log("sec_index", sec_index, "seconds.length", seconds.length, "slide_position", slide_position);
+        if (slide) {
+            slide.value(slide_position);
+        }
+    }
+    d3.select("#tweets-seen-number").text(ntweets.toLocaleString());
 }
 
+function create_tweets_seen() {
+    tweets_seen = [];
+    var total = 0;
+    byseconds.forEach(function(d,i) {
+        tweets_seen.push(total);
+        total += d.length;
+    });
+}
 
 /*
  * A handler run once for every animatable second. Displays all of the
