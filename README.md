@@ -1,10 +1,10 @@
 # TheCubanThaw
-CS-171 Final project
+CS-171 Final project 
 
 Code
 =====
 
-The website protoype was primarily developed using .NET technologies and several other langauges and softwares were used in exploration, ccleaning, and geocoding. We have, however, translated the code to be able to display in github pages for the final deliverable.
+The website primarily developed using .NET technologies. We have, however, translated the code to be able to display in github pages for the final deliverable. Note, that the slider on the map should currently be used mostly as a guide to tell how far along the visualization is.  Fast-forward and reverse functionality still have bugs and are not at production level.
 
 Process Book is found on root folder process-book.pdf
 
